@@ -1,5 +1,5 @@
 {
-    "name": "Blur",
+    "name": "pxt-blur",
     "description": "",
     "dependencies": {
         "device": "*"
