@@ -436,7 +436,7 @@ namespace Blur {
                 }
                 picturesprite.destroy()
             }
-        }
+    }
         //% block
         function FadeOut() {
                 let imagevar: Image = null
