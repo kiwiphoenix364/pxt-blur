@@ -3,7 +3,7 @@ namespace Blur {
 
 
     //% block
-    export function PixelSize(number: number, image: any) {
+    export function PixelSize(number: number, pic: any) {
         let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
                 ................................................................................................................................................................
@@ -265,7 +265,7 @@ namespace Blur {
                     if (160 - x < number) {
                         numwidth = 160 - x
                     }
-                    picturesprite.image.fillRect(x, y, numwidth, numheight, image.image().clone().getPixel(x + numwidth / 2, y + numheight / 2))
+                    picturesprite.image.fillRect(x, y, numwidth, numheight, pic.image().clone().getPixel(x + numwidth / 2, y + numheight / 2))
                     x += number
                     numwidth = number
                 }
