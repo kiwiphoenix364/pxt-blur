@@ -1,6 +1,5 @@
 //% color="#83de8a"
 namespace Blur {
-
     export function PixelSize(number: number) {
         let picturesprite: Sprite = null
         let numwidth = 0
