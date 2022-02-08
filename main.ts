@@ -1,7 +1,7 @@
 //% color="#83de8a"
 namespace Blur {
     //% block
-    export function PixelSize (number: number, time: number) {
+    export function PixelSizeForMS (number: number, time: number) {
         let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
                 ................................................................................................................................................................
@@ -273,6 +273,7 @@ namespace Blur {
             }
             y = 0
             time
+            picturesprite.destroy ()
         }
     }
         //% block
