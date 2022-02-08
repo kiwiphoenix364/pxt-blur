@@ -1,17 +1,18 @@
-//% color="#4C97FF"
-namespace blocks {
+//% color="#83de8a"
+namespace Blur {
 
     /**
      * This is a statement block with a parameter
      */
     //% block
-    export function move(number: number) {
+    export function PixelSize(number: number) {
         let picturesprite: Sprite = null
         let numwidth = 0
         let numheight = 0
         let y = 0
         let x = 0
         forever(function () {
+            picturesprite.destroy()
             picturesprite = sprites.create(img`
         ................................................................................................................................................................
         ................................................................................................................................................................
