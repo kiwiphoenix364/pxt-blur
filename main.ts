@@ -438,7 +438,7 @@ namespace Blur {
             }
     }
         //% block
-        function FadeOut() {
+        export function FadeOut() {
                 let imagevar: Image = null
                 let picturesprite: Sprite = null
                 let number = 0
