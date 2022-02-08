@@ -272,7 +272,7 @@ namespace Blur {
                 numheight = size
             }
             y = 0
-            time
+            400
             picturesprite.destroy ()
         }
     }
