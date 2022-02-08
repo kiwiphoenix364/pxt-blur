@@ -1,7 +1,7 @@
 //% color="#83de8a"
 namespace Blur {
     //% block
-    export function PixelSizeForMS (number: number, time: number) {
+    export function PixelSizeForMS (size: number, time: number) {
         let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
                 ................................................................................................................................................................
@@ -253,23 +253,23 @@ namespace Blur {
             `)
             picturesprite.setFlag(SpriteFlag.RelativeToCamera, true)
             picturesprite.z = 10000
-            numwidth = number
-            numheight = number
+            numwidth = size
+            numheight = size
             for (let index = 0; index < 120 / numheight; index++) {
-                if (120 - y < number) {
+                if (120 - y < size) {
                     numheight = 120 - y
                 }
                 for (let index = 0; index < 160 / numwidth; index++) {
-                    if (160 - x < number) {
+                    if (160 - x < size) {
                         numwidth = 160 - x
                     }
                     picturesprite.image.fillRect(x, y, numwidth, numheight, image.screenImage().clone().getPixel(x + numwidth / 2, y + numheight / 2))
-                    x += number
-                    numwidth = number
+                    x += size
+                    numwidth = size
                 }
                 x = 0
-                y += number
-                numheight = number
+                y += size
+                numheight = size
             }
             y = 0
             time
