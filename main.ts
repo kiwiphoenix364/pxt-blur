@@ -1,10 +1,5 @@
 //% color="#83de8a"
 namespace Blur {
-
-    /**
-     * This is a statement block with a parameter
-     */
-    //% block
     export function PixelSize(number: number) {
         let picturesprite: Sprite = null
         let numwidth = 0
