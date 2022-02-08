@@ -1,6 +1,7 @@
 //% color="#83de8a"
 namespace Blur {
     //% block
+    //% weight 1
     export function PixelSize(number: number) {
         let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
@@ -275,6 +276,7 @@ namespace Blur {
         }
     }
         //% block
+        //% weight 3
         export function FadeIn() {
             20
             let imagevar: Image = null
@@ -438,6 +440,7 @@ namespace Blur {
             }
     }
         //% block
+        //% weight 2
         export function FadeOut() {
                 let imagevar: Image = null
                 let picturesprite: Sprite = null
