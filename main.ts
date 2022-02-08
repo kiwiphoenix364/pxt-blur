@@ -273,9 +273,9 @@ namespace Blur {
             }
             y = 0
         }
-
+    }
         //% block
-        function FadeIn () {
+        export function FadeIn() {
             20
             let imagevar: Image = null
             let picturesprite: Sprite = null
@@ -436,9 +436,9 @@ namespace Blur {
                 }
                 picturesprite.destroy()
             }
-
-            //% block
-            function FadeOut() {
+        }
+        //% block
+        function FadeOut() {
                 let imagevar: Image = null
                 let picturesprite: Sprite = null
                 let number = 0
@@ -600,4 +600,4 @@ namespace Blur {
                 }
     
     }
-}}}
+}
