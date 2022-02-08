@@ -272,8 +272,9 @@ namespace Blur {
                 numheight = size
             }
             y = 0
-            400
-            picturesprite.destroy ()
+            timer.after(time, function()  {picturesprite.destroy()
+                
+            })
         }
     }
         //% block
