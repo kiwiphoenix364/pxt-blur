@@ -1,4 +1,4 @@
-//% color #a32cc4
+//% color="#A32CC4"
 namespace View {
     //% block
     export function RenderFake3d () {
