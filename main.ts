@@ -1,4 +1,4 @@
-//% color = "83de8a"
+//% color = "#83de8a"
 namespace Blur {
     //% block
     export function PixelSizeAndForHowManyMs (size: number, time: number) {
