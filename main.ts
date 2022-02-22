@@ -1,5 +1,4 @@
 //% color="#83de8a"
-let filteron = true
 namespace Blur {
     //% block
     export function PixelSizeAndForHowManyMs (size: number, time: number) {
@@ -129,10 +128,12 @@ namespace Blur {
         let numheight = 0
         let y = 0
         let x = 0
+        let filteron = false
         let zLayer = 0
         const buf = Buffer.create(120)
         const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             if (!filteron) return
+                filteron = true
                 for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 image.getRows(x, buf)
