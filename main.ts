@@ -123,11 +123,24 @@ namespace Blur {
                 ................................................................................................................................................................
                 ................................................................................................................................................................
                 ................................................................................................................................................................
-            `, SpriteKind.Player)
+            `)
         let numwidth = 0
         let numheight = 0
         let y = 0
         let x = 0
+        let zLayer = 0
+        const buf = Buffer.create(120)
+        scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            for (let x = 0; x < 160; x++) {
+                // Read the current screen content for modification
+                image.getRows(x, buf)
+                // Now "buf" contains a color value for the current pixel row 
+                // (it's actually a vertical column onscreen) where it can be modified.
+                for (let y = 0; y < 120; y++) {
+                    buf[y] = image.getPixel(x, y)
+        }
+                // Write the modified pixels back to the screen.
+                image.setRows(x, buf)
         {
             picturesprite.setImage (img`
                 ................................................................................................................................................................
@@ -263,7 +276,7 @@ namespace Blur {
                     if (160 - x < size) {
                         numwidth = 160 - x
                     }
-                    picturesprite.image.fillRect(x, y, numwidth, numheight, image.screenImage().clone().getPixel(x + numwidth / 2, y + numheight / 2))
+                    picturesprite.image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
                 }
@@ -274,9 +287,9 @@ namespace Blur {
             y = 0
             timer.after(time, function()  {picturesprite.destroy()
                 
-            })
+        })
         }
-    }
+    }})}
         //% block
         export function FadeOut() {
         let imagevar: Image = null
