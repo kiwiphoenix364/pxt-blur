@@ -276,7 +276,7 @@ namespace Blur {
                     if (160 - x < size) {
                         numwidth = 160 - x
                     }
-                    picturesprite.image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
+                    image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
                 }
