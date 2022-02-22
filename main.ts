@@ -163,8 +163,7 @@ namespace Blur {
                 numheight = size
             }
             y = 0
-                timer.after(time, function () {
-                    myRenderable.destroy()
+                timer.after(time, function () {myRenderable.destroy()
                 
             })
         }
