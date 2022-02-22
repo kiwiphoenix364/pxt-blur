@@ -140,7 +140,7 @@ namespace Blur {
                     buf[y] = image.getPixel(x, y)
         }
                 // Write the modified pixels back to the screen.
-                picturesprite.image.setRows(x, buf)
+                picturesprite.image.setRows(x, buf)}
         {
             picturesprite.setFlag(SpriteFlag.RelativeToCamera, true)
             picturesprite.z = 10000
@@ -165,9 +165,9 @@ namespace Blur {
             y = 0
             timer.after(time, function()  {picturesprite.destroy()
                 
-        })
+            })
         }
-    }})}
+    })}
         //% block
         export function FadeOut() {
         let imagevar: Image = null
