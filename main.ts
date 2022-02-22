@@ -130,7 +130,7 @@ namespace Blur {
         let x = 0
         let zLayer = 0
         const buf = Buffer.create(120)
-        scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+        const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 image.getRows(x, buf)
@@ -163,7 +163,8 @@ namespace Blur {
                 numheight = size
             }
             y = 0
-            timer.after(time, function()  {picturesprite.destroy()
+                timer.after(time, function () {
+                    myRenderable.destroy()
                 
             })
         }
