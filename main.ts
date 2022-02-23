@@ -132,6 +132,10 @@ namespace Blur {
         let isrendering = true
         isrendering = true
         const buf = Buffer.create(120)
+        const myRenderable = (zLayer, (image: Image, camera: scene.Camera) => {
+            if (!filteron) return
+                filteron = true
+                for (let x = 0; x < 160; x++) {
         const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
@@ -164,6 +168,11 @@ namespace Blur {
                 numheight = size
             }
             y = 0
+                timer.after(time, function () {filteron = false
+                               
+            })
+        }
+    })}
                 timer.after(time, function () {
                 myRenderable.destroy()
                 isrendering = false             
