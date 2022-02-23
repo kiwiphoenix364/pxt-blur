@@ -165,8 +165,7 @@ namespace Blur {
             y = 0
                 timer.after(time, function () {
                 myRenderable.destroy()
-                isrendering = false
-                               
+                isrendering = false             
                 })
         }}
     )}
