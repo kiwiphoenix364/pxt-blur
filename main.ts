@@ -128,13 +128,10 @@ namespace Blur {
         let numheight = 0
         let y = 0
         let x = 0
-        let filteron = false
         let zLayer = 0
         const buf = Buffer.create(120)
         const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-            if (!filteron) return
-                filteron = true
-                for (let x = 0; x < 160; x++) {
+        {for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 image.getRows(x, buf)
                 // Now "buf" contains a color value for the current pixel row 
@@ -144,8 +141,6 @@ namespace Blur {
         }
                 // Write the modified pixels back to the screen.
                 picturesprite.image.setRows(x, buf)}
-            
-        {
             picturesprite.setFlag(SpriteFlag.RelativeToCamera, true)
             picturesprite.z = 10000
             numwidth = size
@@ -167,10 +162,10 @@ namespace Blur {
                 numheight = size
             }
             y = 0
-                timer.after(time, function () {filteron = false
+                timer.after(time, function () {
                 myRenderable.destroy()
                                
-            })
+                })
         }
     })}
         //% block
