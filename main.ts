@@ -1,10 +1,6 @@
 //% color="#83de8a"
 namespace Blur {
     //% block
-    export function CreateEmptyBlurFilter () {
-
-    }
-    //% block
     export function SetBlurFilterPixelSize (size: number) {
         let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
@@ -168,9 +164,6 @@ namespace Blur {
             }
         }
 )}       
-}
-//% color="#83de8a"
-namespace Blur2 {
     //% block
     export function FadeOut () {
         let imagevar: Image = null
