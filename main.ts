@@ -1,7 +1,11 @@
 //% color="#83de8a"
 namespace Blur {
     //% block
-    export function PixelSizeAndForHowManyMs (size: number, time: number) {
+    export function CreateEmptyBlurFilter () {
+
+    }
+    //% block
+    export function SetBlurFilterPixelSize (size: number) {
         let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
                 ................................................................................................................................................................
@@ -129,13 +133,7 @@ namespace Blur {
         let y = 0
         let x = 0
         let zLayer = 0
-        let isrendering = true
-        isrendering = true
         const buf = Buffer.create(120)
-        const myRenderable = (zLayer, (image: Image, camera: scene.Camera) => {
-            if (!filteron) return
-                filteron = true
-                for (let x = 0; x < 160; x++) {
         const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
@@ -145,8 +143,7 @@ namespace Blur {
                 for (let y = 0; y < 120; y++) {
                     buf[y] = image.getPixel(x, y)
                 // Write the modified pixels back to the screen.
-                if (isrendering) {
-                picturesprite.image.setRows(x, buf)}}
+                picturesprite.image.setRows(x, buf)}
             picturesprite.setFlag(SpriteFlag.RelativeToCamera, true)
             picturesprite.z = 10000
             numwidth = size
@@ -167,20 +164,15 @@ namespace Blur {
                 y += size
                 numheight = size
             }
-            y = 0
-                timer.after(time, function () {filteron = false
-                               
-            })
+            y = 0                
+            }
         }
-    })}
-                timer.after(time, function () {
-                myRenderable.destroy()
-                isrendering = false             
-                })
-        }}
-    )}
-        //% block
-        export function FadeOut() {
+)}       
+}
+//% color="#83de8a"
+namespace Blur2 {
+    //% block
+    export function FadeOut () {
         let imagevar: Image = null
         let picturesprite2: Sprite = null
         let number = 0
@@ -342,8 +334,8 @@ namespace Blur {
         }
 
     }
-        //% block
-        export function FadeIn() {
+    //% block
+    export function FadeIn() {
             20
             let imagevar2: Image = null
             let picturesprite3: Sprite = null
