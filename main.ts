@@ -131,8 +131,8 @@ namespace Blur {
         let zLayer = 0
         let isrendering = true
         const buf = Buffer.create(120)
-        const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         if (isrendering) {
+        const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         {for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 image.getRows(x, buf)
@@ -140,9 +140,8 @@ namespace Blur {
                 // (it's actually a vertical column onscreen) where it can be modified.
                 for (let y = 0; y < 120; y++) {
                     buf[y] = image.getPixel(x, y)
-        }
                 // Write the modified pixels back to the screen.
-                picturesprite.image.setRows(x, buf)}}
+                picturesprite.image.setRows(x, buf)}
             picturesprite.setFlag(SpriteFlag.RelativeToCamera, true)
             picturesprite.z = 10000
             numwidth = size
@@ -169,8 +168,8 @@ namespace Blur {
                 isrendering = false
                                
                 })
-        }
-    })}
+        }}
+    })}}
         //% block
         export function FadeOut() {
         let imagevar: Image = null
