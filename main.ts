@@ -23,19 +23,19 @@ namespace Blur {
             numheight = size
             for (let index = 0; index < 120 / numheight; index++) {
                 if (120 - y < size) {
-                    numheight = 120 - index * numheight
+                    numheight = 120 - y
                 for (let index2 = 0; index2 < 160 / numwidth; index2++) {
-                    if (160 - index2 * numwidth < size) {
-                        numwidth = 160 - index * numheight
+                    if (160 - x < size) {
+                        numwidth = 160 - x
                         image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
- 
+                    x += size
                     numwidth = size
                 }
-
-
+                x = 0
+                y += size
                 numheight = size
                 }
-             
+            y = 0                
         }}})
         setTimeout(() => myRenderable.destroy(), 1)
     }
