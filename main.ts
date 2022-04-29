@@ -129,8 +129,8 @@ namespace Blur {
         let y = 0
         let x = 0
         let zLayer = 0
-        const buf = Buffer.create(120)
-        const myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+        let buf = Buffer.create(120)
+        let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 image.getRows(x, buf)
