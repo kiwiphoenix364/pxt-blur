@@ -1,6 +1,6 @@
 //% color="#83de8a"
 namespace Blur {
-
+    //% block
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
         let x = 0
@@ -21,6 +21,8 @@ namespace Blur {
             let numheight = 0
             numwidth = size
             numheight = size
+            x = 0
+            y = 0
             for (let index = 0; index < 120 / numheight; index++) {
                 if (120 - y < size) {
                     numheight = 120 - y
@@ -34,7 +36,7 @@ namespace Blur {
                 x = 0
                 y += size
                 numheight = size
-                }
+            }
             y = 0                
         }}}})
         setTimeout(() => myRenderable.destroy(), 1)
