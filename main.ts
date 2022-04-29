@@ -16,7 +16,7 @@ namespace Blur {
                     buf[y] = image.getPixel(x, y)
                 // Write the modified pixels back to the screen.
                 image.setRows(x, buf)
-                }}
+                }
             let numwidth = 0
             let numheight = 0
             numwidth = size
@@ -36,7 +36,7 @@ namespace Blur {
                 numheight = size
                 }
             y = 0                
-        }}})
+        }}}})
         setTimeout(() => myRenderable.destroy(), 1)
     }
     //% block
