@@ -2,8 +2,8 @@
 namespace Blur {
     //% block
     export function SetBlurFilterPixelSize (size: number) {
-                    let y = 0
-            let x = 0
+        let y = 0
+        let x = 0
         let zLayer = 0
         let buf = Buffer.create(120)
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -11,13 +11,12 @@ namespace Blur {
                 // Read the current screen content for modification
                 image.getRows(x, buf)
                 // Now "buf" contains a color value for the current pixel row 
-                // (it's actually a vertical column onscreen) where it can be modified.
+                // (it's actually a vertical column onscreen) where it can be modified.)
                 for (let y = 0; y < 120; y++) {
                     buf[y] = image.getPixel(x, y)
-                }}
                 // Write the modified pixels back to the screen.
                 image.setRows(x, buf)
-        
+                }}})
             let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
                 ................................................................................................................................................................
@@ -149,25 +148,21 @@ namespace Blur {
             for (let index = 0; index < 120 / numheight; index++) {
                 if (120 - y < size) {
                     numheight = 120 - y
-                }
                 for (let index2 = 0; index2 < 160 / numwidth; index2++) {
                     if (160 - x < size) {
                         numwidth = 160 - x
-                    }
-                    image.fillRect(x, y, numwidth, numheight, picturesprite.image.getPixel(x + numwidth / 2, y + numheight / 2))
+                        picturesprite.image.fillRect(x, y, numwidth, numheight, picturesprite.image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
-                }
+                }}}
                 x = 0
                 y += size
                 numheight = size
-            }
             y = 0                
-            
             pause(40)
             picturesprite.destroy()
+        }
     }
-)}       
     //% block
     export function FadeOut () {
         let imagevar: Image = null
