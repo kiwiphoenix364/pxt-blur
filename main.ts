@@ -139,7 +139,7 @@ namespace Blur {
                 for (let y = 0; y < 120; y++) {
                     buf[y] = image.getPixel(x, y)
                 // Write the modified pixels back to the screen.
-                picturesprite.image.setRows(x, buf)}
+                picturesprite.image.setRows(x, buf)}}
             picturesprite.setFlag(SpriteFlag.RelativeToCamera, true)
             picturesprite.z = 10000
             numwidth = size
@@ -161,10 +161,10 @@ namespace Blur {
                 numheight = size
             }
             y = 0                
-            }
+            
             pause(40)
             picturesprite.destroy()
-        }
+    }
 )}       
     //% block
     export function FadeOut () {
