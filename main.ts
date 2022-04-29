@@ -1,6 +1,6 @@
 //% color="#83de8a"
 namespace Blur {
-    //% block
+
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
         let x = 0
