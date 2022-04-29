@@ -16,7 +16,7 @@ namespace Blur {
                     buf[y] = image.getPixel(x, y)
                 // Write the modified pixels back to the screen.
                 image.setRows(x, buf)
-                }}})
+                }}
             let picturesprite: Sprite = sprites.create(img`
                 ................................................................................................................................................................
                 ................................................................................................................................................................
@@ -151,7 +151,7 @@ namespace Blur {
                 for (let index2 = 0; index2 < 160 / numwidth; index2++) {
                     if (160 - x < size) {
                         numwidth = 160 - x
-                        picturesprite.image.fillRect(x, y, numwidth, numheight, picturesprite.image.getPixel(x + numwidth / 2, y + numheight / 2))
+                        image.fillRect(x, y, numwidth, numheight, picturesprite.image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
                 }}}
@@ -160,7 +160,7 @@ namespace Blur {
                 numheight = size
             y = 0                
                 setTimeout(() => picturesprite.destroy(), 40)
-            }
+        }})
     }
     //% block
     export function FadeOut () {
