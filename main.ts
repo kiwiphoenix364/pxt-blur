@@ -36,7 +36,7 @@ namespace Blur {
                 numheight = size
             y = 0                
         }})
-        myRenderable.destroy()
+        setTimeout(() => myRenderable.destroy(), 40)
     }
     //% block
     export function FadeOut () {
