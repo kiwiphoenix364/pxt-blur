@@ -162,6 +162,8 @@ namespace Blur {
             }
             y = 0                
             }
+            pause(40)
+            picturesprite.destroy()
         }
 )}       
     //% block
