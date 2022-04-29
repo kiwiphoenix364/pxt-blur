@@ -164,6 +164,7 @@ namespace Blur {
             
             pause(40)
             picturesprite.destroy()
+            myRenderable.destroy()
     }
 )}       
     //% block
