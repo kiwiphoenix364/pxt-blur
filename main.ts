@@ -30,12 +30,13 @@ namespace Blur {
                         image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
-                }}}
+                }
                 x = 0
                 y += size
                 numheight = size
+                }
             y = 0                
-        }})
+        }}})
         setTimeout(() => myRenderable.destroy(), 1)
     }
     //% block
