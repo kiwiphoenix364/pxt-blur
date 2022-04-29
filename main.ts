@@ -159,9 +159,8 @@ namespace Blur {
                 y += size
                 numheight = size
             y = 0                
-            pause(40)
-            picturesprite.destroy()
-        }
+                setTimeout(() => picturesprite.destroy(), 40)
+            }
     }
     //% block
     export function FadeOut () {
