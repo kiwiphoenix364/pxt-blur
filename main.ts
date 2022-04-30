@@ -19,12 +19,12 @@ namespace Blur {
                     if (var1 <= 159 && var2 <= 119) {
                     buf[y] = image.getPixel(var1 + (size), var2 + (size))
                     } else {
-                        if (var1 > 159 && var2 > 119) {
+                        if (var1 + (size) > 159 && var2 + (size) > 119) {
                             buf[y] = image.getPixel(159, 119)
-                        } else if (var2 > 119) {
-                            buf[y] = image.getPixel(var1, 119)
+                        } else if (var2 + (size) > 119) {
+                            buf[y] = image.getPixel(var1 + (size), 119)
                         } else {
-                            buf[y] = image.getPixel(159, var2)
+                            buf[y] = image.getPixel(159, var2 + (size))
                         }
                     }
                 // Write the modified pixels back to the screen.
