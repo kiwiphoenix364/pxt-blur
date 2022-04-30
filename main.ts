@@ -9,36 +9,16 @@ namespace Blur {
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
-                image.getRows (Math.round(x / size) * size, buf)
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.)
                 for (let y = 0; y < 120; y++) {
+                    if (Math.round(x / size) * size < 120 && Math.round(y / size) * size < 120) {
                     buf[y] = image.getPixel(Math.round(x / size) * size, Math.round(y / size) * size)
+                    }
                 // Write the modified pixels back to the screen.
                 image.setRows(x, buf)
-                }
-            let numwidth = 0
-            let numheight = 0
-            numwidth = size
-            numheight = size
-            let x2 = 0
-            let y2 = 0
-            for (let index = 0; index < 120 / numheight; index++) {
-                if (120 - y2 < size) {
-                    numheight = 120 - y2
-                for (let index2 = 0; index2 < 160 / numwidth; index2++) {
-                    if (160 - x2 < size) {
-                        numwidth = 160 - x2
-                        image.fillRect(x2, y2, numwidth, numheight, image.getPixel(x2 + numwidth / 2, y2 + numheight / 2))
-                    x += size
-                    numwidth = size
-                }
-                x2 = 0
-                y2 += size
-                numheight = size
-            }
-            y2 = 0                
-        }}}})
+                }             
+        }})
         
     }
     //% block
