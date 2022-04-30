@@ -15,7 +15,7 @@ namespace Blur {
                 // (it's actually a vertical column onscreen) where it can be modified.)
                 for (let y = 0; y < 120; y++) {
                     
-                    buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex / 2), (Math.round(y / sizey) * sizey) + (sizey / 2))
+                    buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex / 2), Math.round(y / sizey) * sizey) + (sizey / 2)
                     sizex = size
                     sizey = size
                 // Write the modified pixels back to the screen.
