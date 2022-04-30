@@ -164,7 +164,7 @@ namespace Blur {
             y = 0                
         }}}})
         myRenderable.destroy()
-        setTimeout(() => sprite.destroy(), 5)
+        setTimeout(() => sprite.destroy(), 20)
     }
     //% block
     export function FadeOut () {
