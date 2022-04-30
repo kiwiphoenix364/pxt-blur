@@ -163,7 +163,7 @@ namespace Blur {
             }
             y = 0                
         }}}})
-        myRenderable.destroy()
+        sprite.destroy()
     }
     //% block
     export function FadeOut () {
