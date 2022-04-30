@@ -6,8 +6,6 @@ namespace Blur {
         let x = 0
         let var1 = 0
         let var2 = 0
-        let sizex = size
-        let sizey = size
         let zLayer = 0
         const buf = Buffer.create(120)
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -19,7 +17,7 @@ namespace Blur {
                     var1 = Math.round(x / size) * size
                     var2 = Math.round(y / size) * size
                     if (var1 <= 159 && var2 <= 119) {
-                    buf[y] = image.getPixel(var2 + (sizex), var2 + (sizey))
+                    buf[y] = image.getPixel(var1 + (size), var2 + (size))
                     } else {
                         if (var1 > 159 && var2 > 119) {
                             buf[y] = image.getPixel(159, 119)
