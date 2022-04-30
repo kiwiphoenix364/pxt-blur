@@ -161,7 +161,6 @@ namespace Blur {
             }
             y = 0                
         }}}})
-        setTimeout(() => myRenderable.destroy(), 5)
         setTimeout(() => sprite.destroy(), 5)
     }
     //% block
