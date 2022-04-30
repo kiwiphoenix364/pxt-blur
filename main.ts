@@ -139,7 +139,7 @@ namespace Blur {
                 for (let y = 0; y < 120; y++) {
                     buf[y] = image.getPixel(x, y)
                 // Write the modified pixels back to the screen.
-                image.setRows(x, buf)
+                sprite.image.setRows(x, buf)
                 }
             let numwidth = 0
             let numheight = 0
@@ -153,7 +153,7 @@ namespace Blur {
                 for (let index2 = 0; index2 < 160 / numwidth; index2++) {
                     if (160 - x < size) {
                         numwidth = 160 - x
-                        sprite.image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
+                        sprite.image.fillRect(x, y, numwidth, numheight, sprite.image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
                 }
@@ -164,7 +164,6 @@ namespace Blur {
             y = 0                
         }}}})
         myRenderable.destroy()
-        
     }
     //% block
     export function FadeOut () {
