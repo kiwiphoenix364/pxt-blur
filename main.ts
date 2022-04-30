@@ -14,11 +14,11 @@ namespace Blur {
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.)
                 for (let y = 0; y < 120; y++) {
-                    if ((Math.round(x / size) * size) + (size / 2) > 160) {
-                        sizex = 160 - (Math.floor(x / size) * size)
+                    if ((Math.round(x / size) * size) + (size / 2) > 159) {
+                        sizex += 0 - ((Math.ceil(x / size) * size) - 159)
                     }
-                    if ((Math.round(y / size) * size) + (size / 2) > 120) {
-                        sizey = 120 - (Math.floor(y / size) * size)
+                    if ((Math.round(y / size) * size) + (size / 2) > 119) {
+                        sizey += 0 - ((Math.ceil(y / size) * size) - 119)
                     }
                     buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex / 2), (Math.round(y / sizey) * sizey) + (sizey / 2))
                     sizex = size
