@@ -20,7 +20,7 @@ namespace Blur {
                     if ((Math.round(y / size) * size) + (size / 2) > 120) {
                         sizey = (Math.round(y / size) * size) + (size / 2) - 120
                     }
-                    buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex / 2), Math.round(y / sizey) * sizey) + (sizey / 2)
+                    buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex / 2), (Math.round(y / sizey) * sizey) + (sizey / 2))
                     sizex = size
                     sizey = size
                 // Write the modified pixels back to the screen.
