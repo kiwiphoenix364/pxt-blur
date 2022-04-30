@@ -13,9 +13,9 @@ namespace Blur {
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.) 
+                var2 = (Math.round(y / size)) * size
                 for (let y = 0; y < 120; y++) {
                     var1 = (Math.round(x / size)) * size
-                    var2 = (Math.round(y / size)) * size
                     if (var1 <= 159 && var2 <= 119) {
                     buf[y] = image.getPixel(var1, var2)
                     } else {
