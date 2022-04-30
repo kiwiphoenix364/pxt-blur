@@ -4,6 +4,8 @@ namespace Blur {
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
         let x = 0
+        let var1 = 0
+        let var2 = 0
         let sizex = size
         let sizey = size
         let zLayer = 0
@@ -14,13 +16,19 @@ namespace Blur {
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.) 
                 for (let y = 0; y < 120; y++) {
-                    if ((Math.round(x / size) * size) >= 159) {
-                        sizex = (159 - (Math.floor(x / size) * size))
+                    var1 = Math.round(x / size) * size
+                    var2 = Math.round(y / size) * size
+                    if (var1 <= 159 && var2 <= 119) {
+                    buf[y] = image.getPixel(var2 + (sizex), var2 + (sizey))
+                    } else {
+                        if (var1 > 159 && var2 > 119) {
+                            buf[y] = image.getPixel(159, 119)
+                        } else if (var2 > 119) {
+                            buf[y] = image.getPixel(var1, 119)
+                        } else {
+                            buf[y] = image.getPixel(159, var2)
+                        }
                     }
-                    if ((Math.round(y / size) * size) >= 119) {
-                        sizey = (119 - (Math.floor(y / size) * size))
-                    }
-                    buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex), (Math.round(y / sizey) * sizey) + (sizey))
                     sizex = size
                     sizey = size
                 // Write the modified pixels back to the screen.
