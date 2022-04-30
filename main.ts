@@ -15,10 +15,10 @@ namespace Blur {
                 // (it's actually a vertical column onscreen) where it can be modified.)
                 for (let y = 0; y < 120; y++) {
                     if ((Math.round(x / size) * size) >= 159) {
-                        sizex += ((Math.floor(x / size) * size) - 159)
+                        sizex += ((Math.round(x / size) * size) - 159)
                     }
                     if ((Math.round(y / size) * size) >= 119) {
-                        sizey += ((Math.floor(y / size) * size) - 119)
+                        sizey += ((Math.round(y / size) * size) - 119)
                     }
                     buf[y] = image.getPixel((Math.round(x / sizex) * sizex) + (sizex), (Math.round(y / sizey) * sizey) + (sizey))
                     sizex = size
