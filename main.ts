@@ -19,11 +19,11 @@ namespace Blur {
                     buf[y - 1] = image.getPixel(var1, var2)
                     } else {
                         if (var1 > 159 - size && var2 > 119 - size) {
-                            buf[y] = image.getPixel(159, 119)
+                            buf[y - 1] = image.getPixel(159, 119)
                         } else if (var2 > 119 - size) {
-                            buf[y] = image.getPixel(var1, 119)
+                            buf[y - 1] = image.getPixel(var1, 119)
                         } else {
-                            buf[y] = image.getPixel(159, var2)
+                            buf[y - 1] = image.getPixel(159, var2)
                         }
                     }
                     var2 = ((Math.round(y / size)) * size) + (size / 2)
