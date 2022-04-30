@@ -137,7 +137,7 @@ namespace Blur {
                 for (let y = 0; y < 120; y++) {
                     buf[y] = image.getPixel(x, y)
                 // Write the modified pixels back to the screen.
-                sprite.image.setRows(x, buf)
+                image.setRows(x, buf)
                 }
             let numwidth = 0
             let numheight = 0
