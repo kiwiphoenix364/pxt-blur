@@ -145,23 +145,23 @@ namespace Blur {
             let numheight = 0
             numwidth = size
             numheight = size
-            x = 0
-            y = 0
+            let x2 = 0
+            let y2 = 0
             for (let index = 0; index < 120 / numheight; index++) {
-                if (120 - y < size) {
+                if (120 - y2 < size) {
                     numheight = 120 - y
                 for (let index2 = 0; index2 < 160 / numwidth; index2++) {
-                    if (160 - x < size) {
+                    if (160 - x2 < size) {
                         numwidth = 160 - x
-                        sprite.image.fillRect(x, y, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
+                        sprite.image.fillRect(x2, y2, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
                     x += size
                     numwidth = size
                 }
-                x = 0
-                y += size
+                x2 = 0
+                y2 += size
                 numheight = size
             }
-            y = 0                
+            y2 = 0                
         }}}})
         myRenderable.destroy()
     }
