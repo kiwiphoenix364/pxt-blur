@@ -12,10 +12,10 @@ namespace Blur {
         for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
-                // (it's actually a vertical column onscreen) where it can be modified.)
+                // (it's actually a vertical column onscreen) where it can be modified.) 
                 for (let y = 0; y < 120; y++) {
                     if ((Math.round(x / size) * size) >= 159) {
-                        sizex = (159 -(Math.floor(x / size) * size))
+                        sizex = (159 - (Math.floor(x / size) * size))
                     }
                     if ((Math.round(y / size) * size) >= 119) {
                         sizey = (119 - (Math.floor(y / size) * size))
