@@ -164,8 +164,7 @@ namespace Blur {
             y = 0                
         }}}})
         myRenderable.destroy()
-        pause(40)
-        setTimeout(() => sprite.destroy(), 20)
+        control.runInBackground (() => setTimeout(() => sprite.destroy(), 20))
     }
     //% block
     export function FadeOut () {
