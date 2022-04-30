@@ -13,7 +13,7 @@ namespace Blur {
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.)
                 for (let y = 0; y < 120; y++) {
-                    buf[y] = image.getPixel(x, y)
+                    buf[y] = image.getPixel(Math.round(x / size) * size, Math.round(y / size) * size)
                 // Write the modified pixels back to the screen.
                 image.setRows(x, buf)
                 }
