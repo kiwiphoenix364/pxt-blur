@@ -27,8 +27,6 @@ namespace Blur {
                             buf[y] = image.getPixel(159, var2)
                         }
                     }
-                    sizex = size
-                    sizey = size
                 // Write the modified pixels back to the screen.
                 image.setRows(x, buf)
                 }             
