@@ -4,8 +4,8 @@ namespace Blur {
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
         let x = 0
-        let sizex = 0
-        let sizey = 0
+        let sizex = size
+        let sizey = size
         let zLayer = 0
         const buf = Buffer.create(120)
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
