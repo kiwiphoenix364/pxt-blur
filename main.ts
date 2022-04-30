@@ -153,7 +153,7 @@ namespace Blur {
                 for (let index2 = 0; index2 < 160 / numwidth; index2++) {
                     if (160 - x2 < size) {
                         numwidth = 160 - x
-                        sprite.image.fillRect(x2, y2, numwidth, numheight, image.getPixel(x + numwidth / 2, y + numheight / 2))
+                        sprite.image.fillRect(x2, y2, numwidth, numheight, image.getPixel(x2 + numwidth / 2, y2 + numheight / 2))
                     x += size
                     numwidth = size
                 }
