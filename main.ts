@@ -16,14 +16,14 @@ namespace Blur {
                 var1 = (Math.round(x / size) * size)
                 for (let y = 0; y < 120; y++) {
                     if (var1 <= 159 && var2 <= 119) {
-                    buf[y + (size / 2)] = image.getPixel(var1, var2)
+                    buf[y - (size / 2)] = image.getPixel(var1, var2)
                     } else {
                         if (var1 > 159 && var2 > 119) {
-                            buf[y + (size / 2)] = image.getPixel(159, 119)
+                            buf[y - (size / 2)] = image.getPixel(159, 119)
                         } else if (var2 > 119) {
-                            buf[y + (size / 2)] = image.getPixel(var1, 119)
+                            buf[y - (size / 2)] = image.getPixel(var1, 119)
                         } else {
-                            buf[y + (size / 2)] = image.getPixel(159, var2)
+                            buf[y - (size / 2)] = image.getPixel(159, var2)
                         }
                     }
                     var2 = (Math.round(y / size) * size)
