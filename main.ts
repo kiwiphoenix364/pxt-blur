@@ -109,8 +109,8 @@ namespace Blur {
         let zLayer = 0
         let buf = Buffer.create(120)
         number = 2
-        numwidth2 = number - 1
-        numheight2 = number - 1
+        numwidth2 = number
+        numheight2 = number
             for (let index3 = 0; index3 < 15; index3++) {
                 buf = Buffer.create(120)
                 let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -131,12 +131,13 @@ namespace Blur {
                     numheight2 = number
                 }
                 y2 = 0
-                number += 1
+                
                 
             }
         )
     pause(40)
     myRenderable.destroy()
+    number += 1
     }
 }
     //% block
