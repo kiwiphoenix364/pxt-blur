@@ -127,7 +127,11 @@ namespace Blur {
                         numwidth2 = number
                     }
                     x2 = 0
+                    if (index4 > 0) {
                     y2 += number
+                    } else {
+                    y2 += number - 1
+                    }
                     numheight2 = number
                 }
                 y2 = 0
