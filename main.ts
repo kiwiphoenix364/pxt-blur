@@ -143,50 +143,7 @@ namespace Blur {
     }
 }
     //% block
-    export function FadeIn() {
-            let imagevar2: Image = null
-            let picturesprite3: Sprite = null
-            let number2 = 0
-            let numwidth3 = 0
-            let numheight3 = 0
-            let y3 = 0
-            let x3 = 0
-            let zLayer = 0
-            let buf = Buffer.create(120)
-                number2 = 17
-                numwidth3 = number2
-                numheight3 = number2
-                for (let index6 = 0; index6 < 15; index6++) {
-                    buf = Buffer.create(120)
-                    let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-                    for (let index7 = 0; index7 < 120 / numheight3; index7++) {
-                        if (120 - y3 < number2) {
-                            numheight3 = 120 - y3
-                        }
-                        for (let index8 = 0; index8 < 160 / numwidth3; index8++) {
-                            if (160 - x3 < number2) {
-                                numwidth3 = 160 - x3
-                            }
-                            image.fillRect(x3, y3, numwidth3, numheight3, image.getPixel(x3 + numwidth3 / 2, y3 + numheight3 / 2))
-                            x3 += number2
-                            numwidth3 = number2
-                        }
-                        x3 = 0
-                        y3 += number2
-                        numheight3 = number2
-                    }
-                    y3 = 0
-                    
-                    
-                }
-            )
-        pause(400)
-        myRenderable.destroy()
-        number2 += -1
-        }
-    }
-    //% block
-    export function FadeIn2 () {
+    export function FadeIn () {
         let number = 0
         let numwidth2 = 0
         let numheight2 = 0
@@ -223,9 +180,9 @@ namespace Blur {
                 
             }
         )
-    pause(40)
-    myRenderable.destroy()
-    number += -1
+        pause(40)
+        myRenderable.destroy()
+        number += -1
+        }
     }
-}
 }
