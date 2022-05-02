@@ -114,21 +114,23 @@ namespace Blur {
             for (let index3 = 0; index3 < 15; index3++) {
                 buf = Buffer.create(120)
                 let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-                for (let index4 = 0; index4 < 120 / numheight2; index4++) {
+                    for (let index4 = 0; index4 < 120 / Math.ceil(numheight2); index4++) {
+                    y2 += number
+                    numheight2 = number
                     if (120 - y2 < number) {
                         numheight2 = 120 - y2
                     }
-                    for (let index5 = 0; index5 < 160 / numwidth2; index5++) {
+                        for (let index5 = 0; index5 < 160 / Math.ceil(numwidth2); index5++) {
+                        x2 += number
+                        numwidth2 = number
                         if (160 - x2 < number) {
                             numwidth2 = 160 - x2
                         }
                         image.fillRect(x2, y2, numwidth2, numheight2, image.getPixel(x2 + numwidth2 / 2, y2 + numheight2 / 2))
-                        x2 += number
-                        numwidth2 = number
+
                     }
                     x2 = 0
-                    y2 += number
-                    numheight2 = number
+
                 }
                 y2 = 0
                 
