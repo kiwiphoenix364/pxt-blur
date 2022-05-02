@@ -54,6 +54,7 @@ namespace Blur {
                 var1 = (Math.round(x / size))
                 for (let y = 0; y < 120; y++) {
                         buf[y] = r1[1]
+                    image.fillRect(x, y, size, size, image.getPixel(x + size / 2, y + size / 2))
                     var2 = (Math.round(x / size) * size)
                     // Write the modified pixels back to the screen.
                     image.setRows(x, buf)
@@ -61,6 +62,42 @@ namespace Blur {
             }
         }
     )}
+    //% block
+    export function test(size: number) {
+        let y = 0
+        let x = 0
+        let var1 = 0
+        let var2 = 0
+        let zLayer = 0
+        let number = 0
+        let numwidth2 = 0
+        let numheight2 = 0
+        let buf = Buffer.create(120)
+        let r1 = [1]
+        let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            for (let index4 = 0; index4 < 120 / numheight2; index4++) {
+                if (120 - y < number) {
+                    numheight2 = 120 - y
+                }
+                for (let index5 = 0; index5 < 160 / numwidth2; index5++) {
+                    if (160 - x < number) {
+                        numwidth2 = 160 - x
+                    }
+                    image.fillRect(x, y, numwidth2, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
+                    x += number
+                    numwidth2 = number
+                }
+                x = 0
+                y += number
+                numheight2 = number
+            }
+            y = 0
+                    image.setRows(x, buf)
+                }
+            
+        
+        )
+    }
     //% block
     export function FadeOut () {
         let imagevar: Image = null
