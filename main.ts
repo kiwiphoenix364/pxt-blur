@@ -43,13 +43,12 @@ namespace Blur {
         let buf = Buffer.create(120)
         let r1 = [1]
         r1 = []
-        for (let x = 0; x < (160 - size) / size; x++) {
-            for (let y = 0; y < (120 - size) / size; y++) {
-                r1.push ((x + (size / 2)) * y)
-            }
-
-        }
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            for (let x = 0; x < (160 - size) / size; x++) {
+                for (let y = 0; y < (120 - size) / size; y++) {
+                    r1.push(image.getPixel(x * size, y * size))
+                }
+            }
             for (let x = 0; x < 160; x++) {
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
