@@ -100,7 +100,8 @@ namespace Blur {
         variable.destroy()
     }
     //% block
-    export function FadeOutWithSpeedMultiplier (mult: number) {
+    //% block="Fade In Over $mult ms"
+    export function FadeOutOver (mult: number) {
         let number = 0
         let numwidth2 = 0
         let numheight2 = 0
@@ -143,7 +144,8 @@ namespace Blur {
     }
 }
     //% block
-    export function FadeInWithSpeedMultiplier(mult: number) {
+    //% block="Fade In Over $mult ms"
+    export function FadeInOver(mult: number) {
             let imagevar2: Image = null
             let picturesprite3: Sprite = null
             let number2 = 0
