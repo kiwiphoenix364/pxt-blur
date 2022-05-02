@@ -41,12 +41,13 @@ namespace Blur {
         let var2 = 0
         let zLayer = 0
         let buf = Buffer.create(120)
-        let r1 = []
-        let r2 = []
-        for (let x = 0; x < 160 / size; x++) {
-            for (let y = 0; y < 120 / size; y++) {
-                
+        let r1 = [1]
+        r1 = []
+        for (let x = 0; x < (160 - size) / size; x++) {
+            for (let y = 0; y < (120 - size) / size; y++) {
+                r1.push ((x + (size / 2)) * y)
             }
+
         }
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let x = 0; x < 160; x++) {
@@ -56,15 +57,7 @@ namespace Blur {
                 var1 = (Math.round(x / size) * size)
                 for (let y = 0; y < 120; y++) {
                     if (var1 <= 159 && var2 <= 119) {
-                        buf[y] = image.getPixel(var1, var2)
-                    } else {
-                        if (var1 > 159 && var2 > 119) {
-                            buf[y] = image.getPixel(159, 119)
-                        } else if (var2 > 119) {
-                            buf[y] = image.getPixel(var1, 119)
-                        } else {
-                            buf[y] = image.getPixel(159, var2)
-                        }
+                        buf[y] = r1[var1 * (var2 + 1)]
                     }
                     var2 = (Math.round(y / size) * size)
                     // Write the modified pixels back to the screen.
