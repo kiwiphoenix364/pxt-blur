@@ -110,11 +110,12 @@ namespace Blur {
         let x2 = 0
         let zLayer = 0
         let buf = Buffer.create(120)
-        let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         number = 2
         numwidth2 = number
         numheight2 = number
             for (let index3 = 0; index3 < 15; index3++) {
+                buf = Buffer.create(120)
+                let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let index4 = 0; index4 < 120 / numheight2; index4++) {
                     if (120 - y2 < number) {
                         numheight2 = 120 - y2
@@ -134,10 +135,11 @@ namespace Blur {
                 y2 = 0
                 number += 1
                 pause(40)
+                myRenderable.destroy()
             }
-        }
-
-        )}
+        )
+    }
+}
     //% block
     export function FadeIn() {
             let imagevar2: Image = null
@@ -149,11 +151,12 @@ namespace Blur {
             let x3 = 0
             let zLayer = 0
             let buf = Buffer.create(120)
-            let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 number2 = 17
                 numwidth3 = number2
                 numheight3 = number2
                 for (let index6 = 0; index6 < 15; index6++) {
+                    buf = Buffer.create(120)
+                    let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                     for (let index7 = 0; index7 < 120 / numheight3; index7++) {
                         if (120 - y3 < number2) {
                             numheight3 = 120 - y3
@@ -173,7 +176,9 @@ namespace Blur {
                     y3 = 0
                     number2 += -1
                     pause(40)
+                    myRenderable.destroy()
                 }
-            }
-            )}
+            )
+        }
+    }
 }
