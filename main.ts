@@ -47,14 +47,14 @@ namespace Blur {
                 
                 r1 = []
                 if ((Math.round(x / size) * size) + (size / 2) == (x) && (Math.round(y / size) * size) + (size / 2) == (y)) {
-                    r1.push(image.getPixel(x, y))
+                    r1.push(image.getPixel((Math.round(x / size) * size) + (size / 2), (Math.round(y / size) * size) + (size / 2)))
                 
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.) 
                 var1 = (Math.round(x / size))
                 for (let y = 0; y < 120; y++) {
-                        buf[y] = r1[1] + 1
+                        buf[y] = r1[1]
                     var2 = (Math.round(y / size) * size)
                     // Write the modified pixels back to the screen.
                     image.setRows(x, buf)
