@@ -108,7 +108,7 @@ namespace Blur {
         let x2 = 0
         let zLayer = 0
         let buf = Buffer.create(120)
-        number = 1
+        number = 2
         numwidth2 = number
         numheight2 = number
             for (let index3 = 0; index3 < 15; index3++) {
@@ -123,12 +123,12 @@ namespace Blur {
                             numwidth2 = 160 - x2
                         }
                         image.fillRect(x2, y2, numwidth2, numheight2, image.getPixel(x2 + numwidth2 / 2, y2 + numheight2 / 2))
-                        x2 += number
-                        numwidth2 = number
+                        x2 += number - 1
+                        numwidth2 = number - 1
                     }
                     x2 = 0
-                    y2 += number
-                    numheight2 = number
+                    y2 += number - 1
+                    numheight2 = number - 1
                 }
                 y2 = 0
                 number += 1
