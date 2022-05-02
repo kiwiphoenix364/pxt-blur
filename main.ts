@@ -63,8 +63,8 @@ namespace Blur {
         }
     )}
     //% block
-    //% block="Set Blur Filter $variable Pixel size $size"
-    export function SetBlurFilter(variable: null, size: number) {
+    //% block="Apply Blur Filter For 1 Frame Pixel Size $size"
+    export function SetBlurFilter (size: number) {
         let y = 0
         let x = 0
         let var1 = 0
@@ -73,7 +73,7 @@ namespace Blur {
         let numwidth2 = size
         let numheight2 = size
         let buf = Buffer.create(120)
-        let $variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+        let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index4 = 0; index4 < 120 / numheight2; index4++) {
                 if (120 - y < size) {
                     numheight2 = 120 - y
@@ -96,6 +96,8 @@ namespace Blur {
             
         
         )
+        pause(40)
+        variable.destroy()
     }
     //% block
     export function FadeOut () {
