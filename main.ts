@@ -123,11 +123,11 @@ namespace Blur {
                             numwidth2 = 160 - x2
                         }
                         image.fillRect(x2, y2, numwidth2 - 1, numheight2 - 1, image.getPixel(x2 + numwidth2 / 2, y2 + numheight2 / 2))
-                        x2 += number
+                        x2 += number - 1
                         numwidth2 = number
                     }
                     x2 = 0
-                    y2 += number
+                    y2 += number - 1
                     numheight2 = number
                 }
                 y2 = 0
