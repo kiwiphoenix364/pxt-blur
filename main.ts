@@ -137,7 +137,7 @@ namespace Blur {
                 
             }
         )
-    pause(40)
+    pause(400)
     myRenderable.destroy()
     number += 1
     }
@@ -180,7 +180,7 @@ namespace Blur {
                     
                 }
             )
-        pause(40)
+        pause(400)
         myRenderable.destroy()
         }
     }
