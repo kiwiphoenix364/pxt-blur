@@ -134,10 +134,11 @@ namespace Blur {
                 }
                 y2 = 0
                 number += 1
-                pause(40)
-                myRenderable.destroy()
+                
             }
         )
+    pause(40)
+    myRenderable.destroy()
     }
 }
     //% block
@@ -175,10 +176,11 @@ namespace Blur {
                     }
                     y3 = 0
                     number2 += -1
-                    pause(40)
-                    myRenderable.destroy()
+                    
                 }
             )
+        pause(40)
+        myRenderable.destroy()
         }
     }
 }
