@@ -46,7 +46,7 @@ namespace Blur {
             for (let x = 0; x < 160; x++) {
                 r1 = []
                 if ((Math.round(x / size) * size) + (size / 2) == (x) && (Math.round(y / size) * size) + (size / 2) == (y)) {
-                    r1.push(image.getPixel(x, y * size + size / 2))
+                    r1.push(image.getPixel(x, y))
                 }
                 for (let y = 0; y < (120 - size) / size; y++) {
                 // Read the current screen content for modification
