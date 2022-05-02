@@ -101,8 +101,6 @@ namespace Blur {
     }
     //% block
     export function FadeOut () {
-        let imagevar: Image = null
-        let picturesprite2: Sprite = null
         let number = 0
         let numwidth2 = 0
         let numheight2 = 0
@@ -110,7 +108,7 @@ namespace Blur {
         let x2 = 0
         let zLayer = 0
         let buf = Buffer.create(120)
-        number = 2
+        number = 3
         numwidth2 = number
         numheight2 = number
             for (let index3 = 0; index3 < 15; index3++) {
@@ -152,7 +150,7 @@ namespace Blur {
             let x3 = 0
             let zLayer = 0
             let buf = Buffer.create(120)
-                number2 = 18
+                number2 = 17
                 numwidth3 = number2
                 numheight3 = number2
                 for (let index6 = 0; index6 < 15; index6++) {
