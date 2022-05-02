@@ -54,6 +54,7 @@ namespace Blur {
                 // (it's actually a vertical column onscreen) where it can be modified.) 
                 var1 = (Math.round(x / size))
                 for (let y = 0; y < 120; y++) {
+                        buf[y] = 0
                         buf[y] = r1[1]
                     var2 = (Math.round(y / size) * size)
                     // Write the modified pixels back to the screen.
