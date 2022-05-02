@@ -55,7 +55,7 @@ namespace Blur {
                 var1 = (Math.round(x / size))
                 for (let y = 0; y < 120; y++) {
                         buf[y] = r1[1]
-                    var2 = (Math.round(y / size) * size)
+                    var2 = (Math.round(x / size) * size)
                     // Write the modified pixels back to the screen.
                     image.setRows(x, buf)
                 }
