@@ -152,7 +152,7 @@ namespace Blur {
             let x3 = 0
             let zLayer = 0
             let buf = Buffer.create(120)
-                number2 = 17
+                number2 = 18
                 numwidth3 = number2
                 numheight3 = number2
                 for (let index6 = 0; index6 < 15; index6++) {
