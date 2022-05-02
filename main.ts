@@ -42,14 +42,13 @@ namespace Blur {
         let zLayer = 0
         let buf = Buffer.create(120)
         let r1 = [1]
-        r1 = []
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-            for (let x = 0; x < (160 - size) / size; x++) {
-                for (let y = 0; y < (120 - size) / size; y++) {
-                    r1.push(image.getPixel(x * size, y * size))
-                }
-            }
             for (let x = 0; x < 160; x++) {
+                r1 = []
+                for (let y = 0; y < (120 - size) / size; y++) {
+                    if (Math.round(x / size)) = (x)) {
+                    r1.push(image.getPixel(x, y * size))
+                }
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.) 
@@ -63,9 +62,8 @@ namespace Blur {
                     image.setRows(x, buf)
                 }
             }
-        })
-
-    }
+        }
+    })}
     //% block
     export function FadeOut () {
         let imagevar: Image = null
