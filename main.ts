@@ -46,8 +46,8 @@ namespace Blur {
             for (let x = 0; x < 160; x++) {
                 
                 r1 = []
-                if ((Math.round(x / size) * size) + (size / 2) == (x) && (Math.round(y / size) * size) + (size / 2) == (y)) {
-                    r1.push(image.getPixel((Math.round(x / size) * size) + (size / 2), (Math.round(y / size) * size) + (size / 2)))
+                if ((Math.round(x / size) * size) + (size / 2) == (x) && (Math.round(y / size) * size) + (size / 2) == y + (size / 2)) {
+                    r1.push(image.getPixel(x, y))
                 
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
