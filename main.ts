@@ -73,7 +73,7 @@ namespace Blur {
         let numwidth2 = size
         let numheight2 = size
         let buf = Buffer.create(120)
-        let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+        let $variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index4 = 0; index4 < 120 / numheight2; index4++) {
                 if (120 - y < size) {
                     numheight2 = 120 - y
