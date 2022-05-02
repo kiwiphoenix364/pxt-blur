@@ -44,11 +44,10 @@ namespace Blur {
         let r1 = [1]
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let x = 0; x < 160; x++) {
-                
                 r1 = []
                 if ((Math.round(x / size) * size) + (size / 2) == (x) && (Math.round(y / size) * size) + (size / 2) == y) {
                     r1.push(image.getPixel(x, y))
-                
+                }
                 // Read the current screen content for modification
                 // Now "buf" contains a color value for the current pixel row 
                 // (it's actually a vertical column onscreen) where it can be modified.) 
@@ -61,7 +60,7 @@ namespace Blur {
                 }
             }
         }
-    })}
+    )}
     //% block
     export function FadeOut () {
         let imagevar: Image = null
