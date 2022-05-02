@@ -74,6 +74,7 @@ namespace Blur {
         let numheight2 = size
         let buf = Buffer.create(120)
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            image.drawRect(0, 0, 159, 119, 0)
             for (let index4 = 0; index4 < 120 / numheight2; index4++) {
                 if (120 - y < size) {
                     numheight2 = 120 - y
@@ -83,8 +84,8 @@ namespace Blur {
                         numwidth2 = 160 - x
                     }
                     image.drawLine(x, y, x, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
-                    if (image.getPixel(x - 1, y) > 0) {
-                        image.setPixel(x, y, image.getPixel(x, y))
+                    if (image.getPixel(x, y) > 0) {
+                        image.setPixel(x + 1, y, image.getPixel(x, y))
                     }
                     x += size
                     numwidth2 = size
