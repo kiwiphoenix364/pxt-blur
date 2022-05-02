@@ -1,6 +1,6 @@
 //% color="#83de8a"
 namespace Blur {
-    // //% block
+    // block
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
         let x = 0
@@ -33,7 +33,7 @@ namespace Blur {
         }})
         
     }
-    // //% block
+    // block
     export function SetBlurFilterPixelSizeOptimized(size: number) {
         let y = 0
         let x = 0
@@ -82,7 +82,9 @@ namespace Blur {
                     if (160 - x < size) {
                         numwidth2 = 160 - x
                     }
-                    image.fillRect(x, y, numwidth2, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
+                    image.drawLine(x, y, x, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
+                    if (image.getPixel(x - 1, y) > 0) {
+                        sprites.akita.setPixel(x, y, image.getPixel(x, y))
                     x += size
                     numwidth2 = size
                 }
