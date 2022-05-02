@@ -137,7 +137,7 @@ namespace Blur {
                 
             }
         )
-    pause(400)
+    pause(40)
     myRenderable.destroy()
     number += 1
     }
@@ -176,12 +176,56 @@ namespace Blur {
                         numheight3 = number2
                     }
                     y3 = 0
-                    number2 += -1
+                    
                     
                 }
             )
         pause(400)
         myRenderable.destroy()
+        number2 += -1
         }
     }
+    //% block
+    export function FadeIn2 () {
+        let number = 0
+        let numwidth2 = 0
+        let numheight2 = 0
+        let y2 = 0
+        let x2 = 0
+        let zLayer = 0
+        let buf = Buffer.create(120)
+        number = 2
+        numwidth2 = number
+        numheight2 = number
+            for (let index3 = 0; index3 < 15; index3++) {
+                buf = Buffer.create(120)
+                let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                for (let index4 = 0; index4 < Math.ceil(120 / numheight2) + 1; index4++) {
+                    if (120 - y2 < number) {
+                        numheight2 = 120 - y2
+                    }
+                    for (let index5 = 0; index5 < 160 / Math.ceil(numwidth2) + 1; index5++) {
+                        if (160 - x2 < number) {
+                            numwidth2 = 160 - x2
+                        }
+                        image.fillRect(x2, y2, numwidth2, numheight2, image.getPixel(x2 + numwidth2 / 2, y2 + numheight2 / 2))
+                        x2 = number * index5
+                        x2 += 1
+                        numwidth2 = number
+                    }
+                    x2 = 0
+                    y2 = number * index4
+                    y2 += 1
+                    numheight2 = number
+                }
+                y2 = 0
+                
+                
+            }
+        )
+    pause(40)
+    myRenderable.destroy()
+    number += -1
+    }
+}
 }
