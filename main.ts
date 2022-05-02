@@ -96,7 +96,7 @@ namespace Blur {
             
         
         )
-        pause(50)
+        pause(67)
         variable.destroy()
     }
     //% block
@@ -137,7 +137,7 @@ namespace Blur {
                 
             }
         )
-    pause(50 * (mult / 1000))
+    pause(67 * (mult / 1000))
     myRenderable.destroy()
     number += 1
     }
@@ -180,7 +180,7 @@ namespace Blur {
                     
                 }
             )
-        pause(50 * (mult / 1000))
+        pause(67 * (mult / 1000))
         myRenderable.destroy()
         number2 += -1
         }
