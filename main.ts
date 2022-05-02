@@ -180,12 +180,12 @@ namespace Blur {
                     
                 }
             )
-        pause(400)
+        pause(40)
         myRenderable.destroy()
         number2 += -1
         }
     }
-    //% block
+    // block
     export function FadeIn2 () {
         let number = 0
         let numwidth2 = 0
