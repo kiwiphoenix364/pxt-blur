@@ -83,11 +83,11 @@ namespace Blur {
                     if (160 - x < size) {
                         numwidth2 = 160 - x
                     }
-                    image.drawLine(x, y, x, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
+                    image.drawLine(x, y, numwidth2, y, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
                     let pixel = image.getPixel(x, y)
                     if (pixel > 0) {
                         for (let index = 0; index < numwidth2; index++) {
-                        image.setPixel(x + index + 1, y, pixel)
+                        image.setPixel(x, y + index + 1, pixel)
                         }
                     }
                     x += size
