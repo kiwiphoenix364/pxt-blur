@@ -45,7 +45,7 @@ namespace Blur {
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let x = 0; x < 160; x++) {
                 
-                r1 = []
+                r1 = [1,2,3,3,3,3,3,3,3]
                 if ((Math.round(x / size) * size) + (size / 2) == (x) && (Math.round(y / size) * size) + (size / 2) == y) {
                     r1.push(image.getPixel(x, y))
                 
