@@ -135,7 +135,7 @@ namespace Blur {
                 
             }
         )
-    pause(40)
+    pause(400)
     myRenderable.destroy()
     }
 }
