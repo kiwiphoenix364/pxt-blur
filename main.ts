@@ -1,6 +1,6 @@
 //% color="#83de8a"
 namespace Blur {
-    //% block
+    // //% block
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
         let x = 0
@@ -33,7 +33,7 @@ namespace Blur {
         }})
         
     }
-    //% block
+    // //% block
     export function SetBlurFilterPixelSizeOptimized(size: number) {
         let y = 0
         let x = 0
@@ -63,7 +63,8 @@ namespace Blur {
         }
     )}
     //% block
-    export function test(size: number) {
+    //% block="Set Blur Filter $variable Pixel size $size"
+    export function SetBlurFilter(variable: null, size: number) {
         let y = 0
         let x = 0
         let var1 = 0
@@ -72,7 +73,6 @@ namespace Blur {
         let numwidth2 = size
         let numheight2 = size
         let buf = Buffer.create(120)
-        let r1 = [1]
         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index4 = 0; index4 < 120 / numheight2; index4++) {
                 if (120 - y < size) {
