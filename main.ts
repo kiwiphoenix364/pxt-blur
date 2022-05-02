@@ -84,7 +84,8 @@ namespace Blur {
                     }
                     image.drawLine(x, y, x, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
                     if (image.getPixel(x - 1, y) > 0) {
-                        sprites.akita.setPixel(x, y, image.getPixel(x, y))
+                        image.setPixel(x, y, image.getPixel(x, y))
+                    }
                     x += size
                     numwidth2 = size
                 }
