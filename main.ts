@@ -135,7 +135,6 @@ namespace Blur {
                 number += 1
                 pause(40)
             }
-            picturesprite2.destroy()
         }
 
         )}
@@ -175,7 +174,6 @@ namespace Blur {
                     number2 += -1
                     pause(40)
                 }
-                picturesprite3.destroy()
             }
             )}
 }
