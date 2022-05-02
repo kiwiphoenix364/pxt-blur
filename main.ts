@@ -57,7 +57,7 @@ namespace Blur {
                 var1 = (Math.round(x / size) * size)
                 for (let y = 0; y < 120; y++) {
                     if (var1 <= 159 && var2 <= 119) {
-                        buf[y] = image.getPixel(r1[var1] / var2, r1[var2 + (size / 2)] * (160 - size) / size)
+                        buf[y] = image.getPixel(r1[var1], r1[var2 + (size / 2)] * (160 - size) / size)
                     }
                     var2 = (Math.round(y / size) * size)
                     // Write the modified pixels back to the screen.
