@@ -65,6 +65,39 @@ namespace Blur {
     //% block
     //% block="Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function SetBlurFilter (size: number) {
+        if (size <= 3) {
+            let y = 0
+            let x = 0
+            let var1 = 0
+            let var2 = 0
+            let zLayer = 0
+            let buf = Buffer.create(120)
+            let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                for (let x = 0; x < 160; x++) {
+                    // Read the current screen content for modification
+                    // Now "buf" contains a color value for the current pixel row 
+                    // (it's actually a vertical column onscreen) where it can be modified.) 
+                    var1 = (Math.round(x / size) * size)
+                    for (let y = 0; y < 120; y++) {
+                        if (var1 <= 159 && var2 <= 119) {
+                            buf[y] = image.getPixel(var1, var2)
+                        } else {
+                            if (var1 > 159 && var2 > 119) {
+                                buf[y] = image.getPixel(159, 119)
+                            } else if (var2 > 119) {
+                                buf[y] = image.getPixel(var1, 119)
+                            } else {
+                                buf[y] = image.getPixel(159, var2)
+                            }
+                        }
+                        var2 = (Math.round(y / size) * size)
+                        // Write the modified pixels back to the screen.
+                        image.setRows(x, buf)
+                    }
+                }
+            })
+
+        } else {
         let y = 0
         let x = 0
         let var1 = 0
@@ -84,10 +117,7 @@ namespace Blur {
                         numwidth2 = 160 - x
                     }
                     color = image.getPixel(x + numwidth2 / 2, y + numheight2 / 2)
-                    if (size >= 3) {
-                        image.fillRect(x, y, numwidth2, numheight2, color)
-                    } else if (size = 2) {
-                        image.drawRect(x, y, numwidth2, numheight2, color)
+                    image.fillRect(x, y, numwidth2, numheight2, color)
                     }
                     x += size
                     numwidth2 = size
@@ -95,15 +125,12 @@ namespace Blur {
                 x = 0
                 y += size
                 numheight2 = size
-            }
-            y = 0
-                    image.setRows(x, buf)
-                }
-            
         
-        )
-        setTimeout(() => variable.destroy(), 20)
-    }
+                    y = 0
+                    image.setRows(x, buf)
+        })
+            setTimeout(() => variable.destroy(), 20)
+    }}
     //% block
     //% block="Fade In Over $mult ms"
     export function FadeOutOver (mult: number) {
