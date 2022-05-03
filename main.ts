@@ -96,7 +96,7 @@ namespace Blur {
             
         
         )
-        pause(50 * control.eventContext().deltaTime * 5 + 0.9)
+        pause(50 * control.eventContext().deltaTime * 5 + 1)
         variable.destroy()
     }
     //% block
