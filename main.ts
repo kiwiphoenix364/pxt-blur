@@ -132,8 +132,8 @@ namespace Blur {
             setTimeout(() => variable.destroy(), 20)
     }}
     //% block
-    //% block="Fade In Over $mult ms"
-    export function FadeOutOver (mult: number) {
+    //% block="Fade In Over $mult ms With Method $mode"
+    export function FadeOutOver (mult: number, mode: number) {
         let number = 0
         let numwidth2 = 0
         let numheight2 = 0
@@ -144,6 +144,7 @@ namespace Blur {
         number = 2
         numwidth2 = number
         numheight2 = number
+        if (mode = 0) {
             for (let index3 = 0; index3 < 15; index3++) {
                 buf = Buffer.create(120)
                 let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -174,10 +175,43 @@ namespace Blur {
     myRenderable.destroy()
     number += 1
     }
+        } else {
+                let tempimg = screen
+            for (let index3 = 0; index3 < 15; index3++) {
+                buf = Buffer.create(120)
+                let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                    for (let index4 = 0; index4 < Math.ceil(120 / numheight2) + 1; index4++) {
+                        if (120 - y2 < number) {
+                            numheight2 = 120 - y2
+                        }
+                        for (let index5 = 0; index5 < 160 / Math.ceil(numwidth2) + 1; index5++) {
+                            if (160 - x2 < number) {
+                                numwidth2 = 160 - x2
+                            }
+                            image.fillRect(x2, y2, numwidth2, numheight2, tempimg.getPixel(x2 + numwidth2 / 2, y2 + numheight2 / 2))
+                            x2 = number * index5
+                            x2 += 1
+                            numwidth2 = number
+                        }
+                        x2 = 0
+                        y2 = number * index4
+                        y2 += 1
+                        numheight2 = number
+                    }
+                    y2 = 0
+
+
+                }
+                )
+                pause(67 * (mult / 1000))
+                myRenderable.destroy()
+                number += 1
+            }
+        }
 }
     //% block
-    //% block="Fade In Over $mult ms"
-    export function FadeInOver(mult: number) {
+    //% block="Fade In Over $mult ms With Method $mode"
+    export function FadeInOver(mult: number, mode: number) {
             let imagevar2: Image = null
             let picturesprite3: Sprite = null
             let number2 = 0
@@ -190,6 +224,7 @@ namespace Blur {
                 number2 = 17
                 numwidth3 = number2
                 numheight3 = number2
+                if (mode = 0) {
                 for (let index6 = 0; index6 < 15; index6++) {
                     buf = Buffer.create(120)
                     let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -218,6 +253,38 @@ namespace Blur {
         myRenderable.destroy()
         number2 += -1
         }
+                } else {
+                    let tempimg = screen
+                    for (let index6 = 0; index6 < 15; index6++) {
+                        buf = Buffer.create(120)
+                        let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                            for (let index7 = 0; index7 < 120 / numheight3; index7++) {
+                                if (120 - y3 < number2) {
+                                    numheight3 = 120 - y3
+                                }
+                                for (let index8 = 0; index8 < 160 / numwidth3; index8++) {
+                                    if (160 - x3 < number2) {
+                                        numwidth3 = 160 - x3
+                                    }
+                                    image.fillRect(x3, y3, numwidth3, numheight3, tempimg.getPixel(x3 + numwidth3 / 2, y3 + numheight3 / 2))
+                                    x3 += number2
+                                    numwidth3 = number2
+                                }
+                                x3 = 0
+                                y3 += number2
+                                numheight3 = number2
+                            }
+                            y3 = 0
+
+
+                        }
+                        )
+                        pause(67 * (mult / 1000))
+                        myRenderable.destroy()
+                        number2 += -1
+                    }
+
+                }
     }
     // block
     export function FadeIn2 () {
