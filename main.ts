@@ -79,6 +79,7 @@ namespace Blur {
                     // (it's actually a vertical column onscreen) where it can be modified.) 
                     var1 = (Math.round(x / size) * size)
                     for (let y = 0; y < 120; y++) {
+                        var2 = (Math.round(y / size) * size)
                         if (var1 <= 159 && var2 <= 119) {
                             buf[y] = image.getPixel(var1, var2)
                         } else {
@@ -90,7 +91,7 @@ namespace Blur {
                                 buf[y] = image.getPixel(159, var2)
                             }
                         }
-                        var2 = (Math.round(y / size) * size)
+                        
                         // Write the modified pixels back to the screen.
                         image.setRows(x, buf)
                     }
