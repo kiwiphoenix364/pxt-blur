@@ -119,16 +119,17 @@ namespace Blur {
                     }
                     color = image.getPixel(x + numwidth2 / 2, y + numheight2 / 2)
                     image.fillRect(x, y, numwidth2, numheight2, color)
-                    }
                     x += size
                     numwidth2 = size
-                }
+                    }
                 x = 0
                 y += size
                 numheight2 = size
         
                     y = 0
                     image.setRows(x, buf)
+                    }
+                
         })
             setTimeout(() => variable.destroy(), 20)
     }}
