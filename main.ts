@@ -96,8 +96,7 @@ namespace Blur {
             
         
         )
-        pause(50)
-        variable.destroy()
+        setTimeout(() => variable.destroy(), 50)
     }
     //% block
     //% block="Fade In Over $mult ms"
