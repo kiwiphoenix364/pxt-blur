@@ -72,7 +72,7 @@ namespace Blur {
             let var2 = 0
             let zLayer = 0
             let buf = Buffer.create(120)
-            let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let x = 0; x < 160; x++) {
                     // Read the current screen content for modification
                     // Now "buf" contains a color value for the current pixel row 
@@ -96,7 +96,7 @@ namespace Blur {
                     }
                 }
             })
-
+            setTimeout(() => variable.destroy(), 20)
         } else {
         let y = 0
         let x = 0
