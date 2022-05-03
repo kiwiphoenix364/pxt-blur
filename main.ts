@@ -147,7 +147,8 @@ namespace Blur {
                         }
                     }
                 setTimeout(() => variable.destroy(), 20)
-                setTimeout(() => tempimg.destroy(), 20)
+                tempimg.destroy()
+                tempimg2.destroy()
                 }) 
             }
             
