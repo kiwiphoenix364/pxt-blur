@@ -124,12 +124,10 @@ namespace Blur {
                     }
                 x = 0
                 y += size
-                numheight2 = size
-        
-                    y = 0
+                numheight2 = size 
+                }
+                y = 0
                     image.setRows(x, buf)
-                    }
-                
         })
             setTimeout(() => variable.destroy(), 20)
     }}
