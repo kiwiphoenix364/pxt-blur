@@ -96,7 +96,7 @@ namespace Blur {
             
         
         )
-        pause(150)
+        pause(200)
         variable.destroy()
     }
     //% block
