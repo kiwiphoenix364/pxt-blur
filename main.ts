@@ -72,6 +72,7 @@ namespace Blur {
         let zLayer = 0
         let numwidth2 = size
         let numheight2 = size
+        let color = 0
         let buf = Buffer.create(120)
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index4 = 0; index4 < 120 / numheight2; index4++) {
@@ -82,7 +83,18 @@ namespace Blur {
                     if (160 - x < size) {
                         numwidth2 = 160 - x
                     }
-                    image.fillRect(x, y, numwidth2, numheight2, image.getPixel(x + numwidth2 / 2, y + numheight2 / 2))
+                    color = image.getPixel(x + numwidth2 / 2, y + numheight2 / 2)
+                    if (size >= 5) {
+                        image.fillRect(x, y, numwidth2, numheight2, color)
+                    } else if (size = 4) {
+                        image.drawRect(x, y, numwidth2, numheight2, color)
+                        image.drawRect(x + 1, y + 1, numwidth2 - 1, numheight2 - 1, color)
+                    } else if (size = 3) {
+                        image.drawRect(x, y, numwidth2, numheight2, color)
+                        image.setPixel(x + 1, y + 1, color)
+                    } else if (size = 2) {
+                        image.drawRect(x, y, numwidth2, numheight2, color)
+                    }
                     x += size
                     numwidth2 = size
                 }
