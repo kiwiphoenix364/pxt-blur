@@ -140,12 +140,8 @@ namespace Blur {
                 let tempimg = sprites.create(image.clone())
                 tempimg.setScale(0.5, ScaleAnchor.Middle)
                 let tempimg2 = sprites.create(image.clone())
-                tempimg2.setScale(size, ScaleAnchor.Middle)
-                for (let y = 0; y < 120; y++) {                 
-                    for (let x = 0; x < 160; x++) {
+                tempimg2.setScale(1, ScaleAnchor.Middle)
                         image = tempimg2.image
-                        }
-                    }
                 setTimeout(() => variable.destroy(), 20)
                 tempimg.destroy()
                 tempimg2.destroy()
