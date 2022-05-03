@@ -84,14 +84,8 @@ namespace Blur {
                         numwidth2 = 160 - x
                     }
                     color = image.getPixel(x + numwidth2 / 2, y + numheight2 / 2)
-                    if (size >= 5) {
+                    if (size >= 3) {
                         image.fillRect(x, y, numwidth2, numheight2, color)
-                    } else if (size = 4) {
-                        image.drawRect(x, y, numwidth2, numheight2, color)
-                        image.drawRect(x + 1, y + 1, numwidth2 - 1, numheight2 - 1, color)
-                    } else if (size = 3) {
-                        image.drawRect(x, y, numwidth2, numheight2, color)
-                        image.setPixel(x + 1, y + 1, color)
                     } else if (size = 2) {
                         image.drawRect(x, y, numwidth2, numheight2, color)
                     }
