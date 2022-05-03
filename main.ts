@@ -138,7 +138,7 @@ namespace Blur {
             let buf = Buffer.create(120)
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 let tempimg = sprites.create(image.clone())
-                tempimg.setScale(1 / size, ScaleAnchor.Middle)
+                tempimg.setScale(0.5)
                 let tempimg2 = sprites.create(image.clone())
                 tempimg2.setScale(size, ScaleAnchor.Middle)
                 for (let y = 0; y < 120; y++) {                 
