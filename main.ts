@@ -132,6 +132,26 @@ namespace Blur {
             setTimeout(() => variable.destroy(), 20)
     }}
     //% block
+    //% block="New Apply Blur Filter For 1 Frame With Pixel Size $size"
+    export function NewSetBlurFilter(size: number) {
+            let zLayer = 0
+            let buf = Buffer.create(120)
+            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                let tempimg = sprites.create(image.clone())
+                tempimg.setScale(1 / size, ScaleAnchor.Middle)
+                for (let y = 0; y < 120; y++) {                 
+                    for (let x = 0; x < 160; x++) {
+                        image = tempimg.image
+                        }
+                    }
+                
+                setTimeout(() => variable.destroy(), 20)
+                }) 
+            }
+            
+
+
+    //% block
     //% block="Fade Out Over $mult ms With Method $mode"
     export function FadeOutOver (mult: number, mode: number) {
         let number = 0
