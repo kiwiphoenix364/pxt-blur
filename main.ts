@@ -144,7 +144,7 @@ namespace Blur {
         number = 2
         numwidth2 = number
         numheight2 = number
-        if (mode = 1) {
+        if (mode > 0) {
             for (let index3 = 0; index3 < 15; index3++) {
                 buf = Buffer.create(120)
                 let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -225,7 +225,7 @@ namespace Blur {
                 number2 = 17
                 numwidth3 = number2
                 numheight3 = number2
-                if (mode = 1) {
+                if (mode > 0) {
                 for (let index6 = 0; index6 < 15; index6++) {
                     buf = Buffer.create(120)
                     let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
