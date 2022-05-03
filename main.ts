@@ -133,7 +133,7 @@ namespace Blur {
     }}
     //% block
     //% block="Fade In Over $mult ms With Method $mode"
-    export function FadeOutOver (mult: number, mode: number) {
+    export function FadeInOver (mult: number, mode: number) {
         let number = 0
         let numwidth2 = 0
         let numheight2 = 0
@@ -176,7 +176,7 @@ namespace Blur {
     number += 1
     }
         } else {
-                let tempimg = screen
+            let tempimg = image.screenImage().clone()
             for (let index3 = 0; index3 < 15; index3++) {
                 buf = Buffer.create(120)
                 let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -210,8 +210,8 @@ namespace Blur {
         }
 }
     //% block
-    //% block="Fade In Over $mult ms With Method $mode"
-    export function FadeInOver(mult: number, mode: number) {
+    //% block="Fade Out Over $mult ms With Method $mode"
+    export function FadeOutOver(mult: number, mode: number) {
             let imagevar2: Image = null
             let picturesprite3: Sprite = null
             let number2 = 0
@@ -254,7 +254,7 @@ namespace Blur {
         number2 += -1
         }
                 } else {
-                    let tempimg = screen
+                    let tempimg = image.screenImage().clone()
                     for (let index6 = 0; index6 < 15; index6++) {
                         buf = Buffer.create(120)
                         let myRenderable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
