@@ -135,15 +135,18 @@ namespace Blur {
     //% block="New Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function NewSetBlurFilter(size: number) {
         let zLayer = 0
+        let savedx = 0
         let buf = Buffer.create(120)
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 let tempimg = sprites.create(image.clone())
                 tempimg.setScale(0.5)
                     for (let index = 0; index < 160; index++) {
+                        savedx = index / size
                     for (let index2 = 0; index2 < 120; index2++) {
-                        buf[index2] = tempimg.image.getPixel(index / 2, index2 / 2)
-                        image.setRows(index, buf)
+                        buf[index2] = tempimg.image.getPixel(savedx, index2 / size)
+                        
                     }
+                image.setRows(index, buf)
                 }
                 
                 tempimg.destroy()
