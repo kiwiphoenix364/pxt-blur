@@ -134,7 +134,7 @@ namespace Blur {
     //% block
     //% block="New Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function NewSetBlurFilter(size: number) {
-        if (control.eventContext().deltaTime <= 20) {
+        if (control.eventContext().deltaTime <= 2) {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
