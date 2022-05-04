@@ -142,7 +142,8 @@ namespace Blur {
                 tempimg.setScale(0.5)
                     for (let index = 0; index < 159; index++) {
                     for (let index2 = 0; index2 < 119; index2++) {
-                        buf[index2] = tempimg.image.getPixel(index / 2, index2 / 2)
+                        //buf[index2] = tempimg.image.getPixel(index / 2, index2 / 2)
+                        buf[index2] = 15
                     }
                 }
                 
