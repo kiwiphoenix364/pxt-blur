@@ -134,18 +134,18 @@ namespace Blur {
     //% block
     //% block="New Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function NewSetBlurFilter(size: number) {
-    if (game.runtime() > 20 && !(controller.menu.isPressed())) {
+    if (game.runtime() > 40 && !(controller.menu.isPressed())) {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
         let precalc = [0]
         precalc = []
         for (let index3 = 0; index3 < 119; index3++) {
-            precalc.push(Math.constrain((Math.round(index3 / size)) * size + size, 0, 119))
+            precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index = 0; index < 159; index++) {
-                savedx = Math.constrain((Math.round(index / size)) * size + size, 0, 159)
+                savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
                 for (let index2 = 0; index2 < 119; index2++) {
                         buf[index2] = image.getPixel(savedx, precalc[index2])
                     }
@@ -153,7 +153,6 @@ namespace Blur {
                 }
                 }
             ) 
-            setTimeout(() => variable.destroy(), 20)
             setTimeout(() => variable.destroy(), 20)
         }
     }
