@@ -134,6 +134,7 @@ namespace Blur {
     //% block
     //% block="New Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function NewSetBlurFilter(size: number) {
+    if (game.runtime() > 20 && !(controller.menu.isPressed())) {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
@@ -155,7 +156,7 @@ namespace Blur {
             setTimeout(() => variable.destroy(), 20)
             setTimeout(() => variable.destroy(), 20)
         }
-            
+    }
 
 
     //% block
