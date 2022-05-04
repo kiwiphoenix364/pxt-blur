@@ -139,8 +139,10 @@ namespace Blur {
         let buf = Buffer.create(120)
         let precalc = [0]
         precalc = []
-        for (let index3 = 0; index3 < 120; index3++) {
+        for (let index3 = 0; index3 < 120 / size; index3++) {
+            for (let index4 = 0; index4 < size; index4++) {
             precalc.push(Math.round(index3 / size) * size)
+            }
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                     for (let index = 0; index < 160; index++) {
