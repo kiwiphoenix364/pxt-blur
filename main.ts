@@ -147,7 +147,7 @@ namespace Blur {
             for (let index = 0; index < 159; index++) {
                 savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
                 for (let index2 = 0; index2 < 119; index2++) {
-                        buf[index2] = image.getPixel(savedx - size / 2, precalc[index2] - size / 2)
+                        buf[index2] = image.getPixel(savedx - size / 2 + 1, precalc[index2] - size / 2 + 1)
                     }
                 image.setRows(index, buf)
                 }
