@@ -137,10 +137,11 @@ namespace Blur {
         let zLayer = 0
         let buf = Buffer.create(120)
         let tempimg = sprites.create(screen.clone())
+        tempimg.setScale(1 / size)
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let index = 0; index < 159; index++) {
                     for (let index2 = 0; index2 < 119; index2++) {
-                        buf[index2] = Math.round(tempimg.image.getPixel(index / size, index / size))
+                        buf[index2] = Math.round(tempimg.image.getPixel(index / size, index2 / size))
                     }
                 }
                 
