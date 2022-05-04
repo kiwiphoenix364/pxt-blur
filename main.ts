@@ -143,7 +143,7 @@ namespace Blur {
                         buf[index2] = Math.round(tempimg.image.getPixel(index / size, index / size))
                     }
                 }
-                pause(40)
+                pause(4000)
                 setTimeout(() => variable.destroy(), 20)
                 }
             ) 
