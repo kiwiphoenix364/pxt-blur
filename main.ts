@@ -153,7 +153,7 @@ namespace Blur {
                 }
             ) 
             setTimeout(() => variable.destroy(), 20)
-            
+            setTimeout(() => variable.destroy(), 20)
         }
             
 
