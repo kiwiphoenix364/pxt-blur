@@ -138,18 +138,25 @@ namespace Blur {
         let savedx = 0
         let buf = Buffer.create(120)
         let precalc = [0]
+        let e = 0
+        let num1 = 0
         precalc = []
         for (let index3 = 0; index3 < 120 / size; index3++) {
+            e = Math.constrain(Math.round(index3 / size) * size + size / 2, null, 119)
             for (let index4 = 0; index4 < size; index4++) {
-            precalc.push(Math.round(index3 / size) * size)
+            precalc.push(e)
             }
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                     for (let index = 0; index < 160; index++) {
-                        savedx = Math.round(index / size) * size + size / 2
-                    for (let index2 = 0; index2 < 120; index2++) {
-                        buf[index2] = image.getPixel(Math.constrain(savedx, null, 159), Math.constrain(precalc[index2], null, 119))
-                        
+                        savedx = Math.constrain(Math.round(index / size) * size + size / 2, null, 159)
+                    for (let index2 = 0; index2 < 120 / size; index2++) {
+                    num1 = precalc[index2]
+                        for (let index5 = 0; index5 < size; index5++) {
+                        buf[index2] = image.getPixel (savedx, num1)
+                        index2 += 1
+                        }
+                    index2 += -1
                     }
                 image.setRows(index, buf)
                 }
