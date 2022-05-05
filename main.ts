@@ -153,6 +153,7 @@ namespace Blur {
                 }
                 }
             ) 
+            pause(20)
             variable.destroy()
         }
     }
