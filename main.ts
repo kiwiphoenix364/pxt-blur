@@ -187,8 +187,9 @@ namespace Blur {
         control.runInParallel(() => variable.destroy())
     }
     }
-    //% block
-    //% block="Fade Out Over $mult ms With Method $mode"
+    /*
+    // block
+    // block="Fade Out Over $mult ms With Method $mode"
     export function FadeOutOver (mult: number, mode: number) {
         let number = 0
         let numwidth2 = 0
@@ -266,8 +267,8 @@ namespace Blur {
         }
         
 }
-    //% block
-    //% block="Fade In Over $mult ms With Method $mode"
+    // block
+    // block="Fade In Over $mult ms With Method $mode"
     export function FadeInOver(mult: number, mode: number) {
             let imagevar2: Image = null
             let picturesprite3: Sprite = null
@@ -343,7 +344,6 @@ namespace Blur {
 
                 }
     }
-    /*
     // block
     export function FadeIn2 () {
         let number = 0
@@ -388,4 +388,75 @@ namespace Blur {
     }
 }
 */
+    //% block
+    //% block="Fade Out Over $mult ms, Use $mode To Fade"
+    //% blockHidden=true
+    //% mode.fieldEditor="mode"
+    //% mode.fieldOptions.decompileLiterals=true
+    //% mode.fieldOptions.values='snapshot of current screen, screen in real time'
+    export function FadeOutOver(mult: number, mode: string) {
+    let tempimg: Image = null
+        if (mode = "snapshot of current screen") {
+    let tempimg = image.screenImage().clone()
+    }
+    for (let size = 2; size < 17; size++) {
+    if (size >= 5) {
+        let zLayer = 0
+        let savedx = 0
+        let buf = Buffer.create(120)
+        let precalc = [0]
+        let var1 = 0
+        let var2 = 0
+        let var3 = 120 / size
+        precalc = []
+        for (let index3 = 0; index3 < var3; index3++) {
+            precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
+        }
+        let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            if (mode = "snapshot of current screen") {
+                image = tempimg
+            }
+            for (let index = 0; index < 160; index++) {
+                savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
+                for (let index2 = 0; index2 < var3; index2++) {
+                    var1 = index2 * size
+                    var2 = image.getPixel(savedx, precalc[index2])
+                    for (let index3 = 0; index3 < size; index3++) {
+                        buf[var1 + index3] = var2
+                    }
+                }
+                image.setRows(index, buf)
+            }
+        }
+        )
+        control.runInParallel(() => pause(20))
+        control.runInParallel(() => variable.destroy())
+    } else {
+        let zLayer = 0
+        let savedx = 0
+        let buf = Buffer.create(120)
+        let precalc = [0]
+        precalc = []
+        for (let index3 = 0; index3 < 120; index3++) {
+            precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
+        }
+        let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            if (mode = "snapshot of current screen") {
+                image = tempimg
+            }
+            for (let index = 0; index < 160; index++) {
+                savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
+                for (let index2 = 0; index2 < 120; index2++) {
+                    buf[index2] = image.getPixel(savedx, precalc[index2])
+                }
+                image.setRows(index, buf)
+            }
+        }
+        )
+        control.runInParallel(() => pause(20))
+        control.runInParallel(() => variable.destroy())
+    }
+    pause(66 + 2/3 * (mult / 1000))
+    }
+    }
 }
