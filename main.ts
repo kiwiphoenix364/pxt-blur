@@ -136,7 +136,6 @@ namespace Blur {
     //% block
     //% block="Apply Blur Filter For 1 Frame With Pixel Size $size 1"
     export function SetBlurFilter1(size: number) {
-        if (!(controller.menu.isPressed())) {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
@@ -164,11 +163,9 @@ namespace Blur {
         control.runInParallel(() => pause(20))
         control.runInParallel(() => variable.destroy())
         }
-    }
 //% block
-//% block="New Apply Blur Filter For 1 Frame With Pixel Size $size 2"
+//% block="Apply Blur Filter For 1 Frame With Pixel Size $size 2"
 export function SetBlurFilter2(size: number) {
-    if (!(controller.menu.isPressed())) {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
@@ -181,7 +178,7 @@ export function SetBlurFilter2(size: number) {
             for (let index = 0; index < 160; index++) {
                 savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
                 for (let index2 = 0; index2 < 120; index2++) {
-                    buf[index2] = image.getPixel(savedx - size / 2, precalc[index2] - size / 2)
+                    buf[index2] = image.getPixel(savedx, precalc[index2])
                 }
                 image.setRows(index, buf)
             }
@@ -190,8 +187,6 @@ export function SetBlurFilter2(size: number) {
         control.runInParallel(() => pause(20))
         control.runInParallel(() => variable.destroy())
     }
-}
-
     //% block
     //% block="Fade Out Over $mult ms With Method $mode"
     export function FadeOutOver (mult: number, mode: number) {
