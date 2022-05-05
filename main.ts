@@ -152,9 +152,7 @@ namespace Blur {
                 for (let index2 = 0; index2 < 120 / size; index2++) {
                     for (let index3 = 0; index3 < size; index3++) {
                         buf[index2 * size + index3] = image.getPixel(savedx - size / 2, precalc[index2] - size / 2)
-                        index2 += 1
                     }
-                    index2 += -1
                     }
                 image.setRows(index, buf)
                 }
