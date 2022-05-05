@@ -5,6 +5,7 @@ enum Mode {
     //% block="Screen In Real Time"
     ScreenInRealTime
 }
+//% color="#83de8a"
 namespace Blur {
     /*
     // block
@@ -399,7 +400,7 @@ namespace Blur {
     //% picker.fieldOptions.width=220
     //% picker.fieldOptions.columns=1
     //% picker=Mode
-    //% block="Fade Out Over $mult ms, Use $picker To Fade"
+    //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
     let tempimg: Image = null
         if (mode = 1) {
