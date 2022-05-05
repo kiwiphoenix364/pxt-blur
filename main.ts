@@ -1,6 +1,5 @@
 //% color="#83de8a"
 namespace Blur {
-    /*
     // block
     export function SetBlurFilterPixelSize (size: number) {
         let y = 0
@@ -64,7 +63,7 @@ namespace Blur {
         }
     )}
     // block
-    // block="SLOW Apply Blur Filter For 1 Frame With Pixel Size $size"
+    // block="Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function SetBlurFilter (size: number) {
         if (size <= 3) {
             let y = 0
@@ -132,9 +131,8 @@ namespace Blur {
         })
             setTimeout(() => variable.destroy(), 20)
     }}
-    */
     //% block
-    //% block="Apply Blur Filter For 1 Frame With Pixel Size $size"
+    //% block="New Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function NewSetBlurFilter(size: number) {
         if (!(controller.menu.isPressed())) {
         let zLayer = 0
@@ -142,16 +140,14 @@ namespace Blur {
         let buf = Buffer.create(120)
         let precalc = [0]
         precalc = []
-        for (let index3 = 0; index3 < 119 / size; index3++) {
-            precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
+        for (let index3 = 0; index3 < 119; index3++) {
+            precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index = 0; index < 160; index++) {
                 savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
-                for (let index2 = 0; index2 < 120 / size; index2++) {
-                    for (let index3 = 0; index3 < size; index3++) {
-                        buf[index2 * size + index3] = image.getPixel(savedx - size / 2, precalc[index2] - size / 2)
-                    }
+                for (let index2 = 0; index2 < 120; index2++) {
+                        buf[index2] = image.getPixel(savedx - size / 2, precalc[index2] - size / 2)
                     }
                 image.setRows(index, buf)
                 }
@@ -319,7 +315,6 @@ namespace Blur {
 
                 }
     }
-    /*
     // block
     export function FadeIn2 () {
         let number = 0
@@ -363,5 +358,4 @@ namespace Blur {
     number += -1
     }
 }
-*/
 }
