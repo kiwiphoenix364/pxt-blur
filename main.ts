@@ -388,20 +388,20 @@ namespace Blur {
     }
 }
 */
+enum Mode {
+    //% block="Snapshot Of Current Screen"
+    SnapshotOfCurrentScreen,
+    //% block="Screen In Real Time"
+    ScreenInRealTime
+    }
     //% block
     //% gesture.fieldEditor="gridpicker"
     //% gesture.fieldOptions.width=220
     //% gesture.fieldOptions.columns=1
-    enum mode {
-    //% block="Snapshot Of Current Screen"
-    SnapshotCurrent,
-    //% block="Screen In Real Time"
-    RealTime
-    }
-    //% block="Fade Out Over $mult ms, Use $mode To Fade"
-    export function FadeOutOver(mult: number, mode: string) {
+    //% block="Fade Out Over $mult ms, Use $Mode To Fade"
+    export function FadeOutOver(mult: number, mode: Mode) {
     let tempimg: Image = null
-        if (mode = "snapshot of current screen") {
+        if (mode = 1) {
     let tempimg = image.screenImage().clone()
     }
     for (let size = 2; size < 17; size++) {
@@ -418,7 +418,7 @@ namespace Blur {
             precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-            if (mode = "snapshot of current screen") {
+            if (mode = 1) {
                 image = tempimg
             }
             for (let index = 0; index < 160; index++) {
@@ -446,7 +446,7 @@ namespace Blur {
             precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-            if (mode = "snapshot of current screen") {
+            if (mode = 1) {
                 image = tempimg
             }
             for (let index = 0; index < 160; index++) {
