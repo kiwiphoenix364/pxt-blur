@@ -144,7 +144,6 @@ namespace Blur {
         precalc = []
         for (let index3 = 0; index3 < 119 / size; index3++) {
             precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
-            index3 += size - 1
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
             for (let index = 0; index < 160; index++) {
