@@ -447,9 +447,9 @@ namespace Blur {
                     image.setRows(index, buf)
                 }
         }
-            pause(1000)
+        pause(1000)
         }
+        setTimeout(() => variable.destroy(), 1000)
     })
-    setTimeout(() => variable.destroy(), 1000)
     }
 }
