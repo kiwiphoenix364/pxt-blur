@@ -390,7 +390,7 @@ namespace Blur {
 */
     //% block
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
-    //% mode.fieldEditor="mode"
+    //% mode.fieldEditor="textdropdown"
     //% mode.fieldOptions.decompileLiterals=true
     //% mode.fieldOptions.values='snapshot of current screen, screen in real time'
     export function FadeOutOver(mult: number, mode: string) {
