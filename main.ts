@@ -402,7 +402,7 @@ namespace Blur {
     //% picker=Mode
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
-        let wait = (66)
+        let wait = ((66 + 2/3)* (mult / 1000))
         let size1 = 2
         for (let size = 0; size < 15; size++) {
         size += 1
@@ -456,7 +456,7 @@ namespace Blur {
             control.runInParallel(() => pause(wait))
             control.runInParallel(() => variable.destroy())
         }
-    pause(wait)
+    pause(1000)
     }
 }
 }
