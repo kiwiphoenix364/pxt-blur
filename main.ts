@@ -406,7 +406,7 @@ namespace Blur {
         let size1 = 2
         for (let size = 0; size < 15; size++) {
         info.changeScoreBy(1)
-        size += 1
+        size1 += 1
         if (size1 >= 5) {
             let zLayer = 0
             let savedx = 0
