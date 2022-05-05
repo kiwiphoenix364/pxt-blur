@@ -450,7 +450,6 @@ namespace Blur {
             pause(1000)
         }
     })
-    control.runInParallel(() => pause(100000))
-    control.runInParallel(() => variable.destroy())
+    setTimeout(() => variable.destroy(), 1000)
     }
 }
