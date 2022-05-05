@@ -448,7 +448,8 @@ namespace Blur {
                 }
         }
         }
+    })
     control.runInParallel(() => pause(1000))
     control.runInParallel(() => variable.destroy())
-    })}
+    }
 }
