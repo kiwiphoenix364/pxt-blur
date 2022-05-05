@@ -389,10 +389,16 @@ namespace Blur {
 }
 */
     //% block
+    //% gesture.fieldEditor="gridpicker"
+    //% gesture.fieldOptions.width=220
+    //% gesture.fieldOptions.columns=1
+    enum mode {
+    //% block="Snapshot Of Current Screen"
+    SnapshotCurrent,
+    //% block="Screen In Real Time"
+    RealTime
+    }
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
-    //% mode.fieldEditor="textdropdown"
-    //% mode.fieldOptions.decompileLiterals=true
-    //% mode.fieldOptions.values='snapshot of current screen, screen in real time'
     export function FadeOutOver(mult: number, mode: string) {
     let tempimg: Image = null
         if (mode = "snapshot of current screen") {
