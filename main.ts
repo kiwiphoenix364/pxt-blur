@@ -402,8 +402,10 @@ namespace Blur {
     //% picker=Mode
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
+        let size1 = 2
         for (let size = 0; size < 15; size++) {
-        if (size >= 5) {
+        size += 1
+        if (size1 >= 5) {
             let zLayer = 0
             let savedx = 0
             let buf = Buffer.create(120)
@@ -413,15 +415,15 @@ namespace Blur {
             let var3 = 120 / size
             precalc = []
             for (let index3 = 0; index3 < var3; index3++) {
-                precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
+                precalc.push(Math.constrain(index3 * size1 + size1 / 2, 0, 119))
             }
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let index = 0; index < 160; index++) {
-                    savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
+                    savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
                     for (let index2 = 0; index2 < var3; index2++) {
-                        var1 = index2 * size
+                        var1 = index2 * size1
                         var2 = image.getPixel(savedx, precalc[index2])
-                        for (let index3 = 0; index3 < size; index3++) {
+                        for (let index3 = 0; index3 < size1; index3++) {
                             buf[var1 + index3] = var2
                         }
                     }
@@ -438,11 +440,11 @@ namespace Blur {
             let precalc = [0]
             precalc = []
             for (let index3 = 0; index3 < 120; index3++) {
-                precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
+                precalc.push(Math.constrain((Math.round(index3 / size1)) * size1 + size1 / 2, 0, 119))
             }
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let index = 0; index < 160; index++) {
-                    savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
+                    savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
                     for (let index2 = 0; index2 < 120; index2++) {
                         buf[index2] = image.getPixel(savedx, precalc[index2])
                     }
