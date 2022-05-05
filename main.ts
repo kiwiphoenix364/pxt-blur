@@ -422,7 +422,7 @@ namespace Blur {
 `, SpriteKind.Player)
 mySprite.sayText(mode)
     let tempimg: Image = null
-        if (mode = mode) {
+        if (!(mode = 0)) {
     let tempimg = image.screenImage().clone()
     }
     for (let size = 2; size < 17; size++) {
@@ -439,7 +439,7 @@ mySprite.sayText(mode)
             precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-            if (mode = mode) {
+            if (!(mode = 0)) {
                 image = tempimg
             }
             for (let index = 0; index < 160; index++) {
@@ -467,7 +467,7 @@ mySprite.sayText(mode)
             precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-            if (mode = mode) {
+            if (!(mode = 0)) {
                 image = tempimg
             }
             for (let index = 0; index < 160; index++) {
