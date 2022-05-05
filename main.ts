@@ -402,61 +402,58 @@ namespace Blur {
     //% picker=Mode
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
-    let buf = Buffer.create(120)
-    let zLayer = 0
-    let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-    let tempimg: Image = null
-        if (mode = 0) {
-    let tempimg = image.clone()
-    }
-    for (let size = 0; size < 17; size++) {
-    info.changeScoreBy(1)    
-    if (size >= 5) {
-        let savedx = 0
-        let precalc = [0]
-        let var1 = 0
-        let var2 = 0
-        let var3 = 120 / size
-        precalc = []
-        for (let index3 = 0; index3 < var3; index3++) {
-            precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
-        }
-            if (mode = 0) {
-                image = tempimg
+        for (let size = 0; size < 15; size++) {
+        if (size >= 5) {
+            let zLayer = 0
+            let savedx = 0
+            let buf = Buffer.create(120)
+            let precalc = [0]
+            let var1 = 0
+            let var2 = 0
+            let var3 = 120 / size
+            precalc = []
+            for (let index3 = 0; index3 < var3; index3++) {
+                precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
             }
-            for (let index = 0; index < 160; index++) {
-                savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
-                for (let index2 = 0; index2 < var3; index2++) {
-                    var1 = index2 * size
-                    var2 = image.getPixel(savedx, precalc[index2])
-                    for (let index3 = 0; index3 < size; index3++) {
-                        buf[var1 + index3] = var2
+            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                for (let index = 0; index < 160; index++) {
+                    savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
+                    for (let index2 = 0; index2 < var3; index2++) {
+                        var1 = index2 * size
+                        var2 = image.getPixel(savedx, precalc[index2])
+                        for (let index3 = 0; index3 < size; index3++) {
+                            buf[var1 + index3] = var2
+                        }
                     }
+                    image.setRows(index, buf)
                 }
-                image.setRows(index, buf)
             }
-    } else {
-        let savedx = 0
-        let precalc = [0]
-        precalc = []
-        for (let index3 = 0; index3 < 120; index3++) {
-            precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
-        }
-            if (mode = 0) {
-                image = tempimg
+            )
+            control.runInParallel(() => pause(20))
+            control.runInParallel(() => variable.destroy())
+        } else {
+            let zLayer = 0
+            let savedx = 0
+            let buf = Buffer.create(120)
+            let precalc = [0]
+            precalc = []
+            for (let index3 = 0; index3 < 120; index3++) {
+                precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
             }
-            for (let index = 0; index < 160; index++) {
-                savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
-                for (let index2 = 0; index2 < 120; index2++) {
-                    buf[index2] = image.getPixel(savedx, precalc[index2])
+            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                for (let index = 0; index < 160; index++) {
+                    savedx = Math.constrain((Math.round(index / size)) * size + size / 2, 0, 159)
+                    for (let index2 = 0; index2 < 120; index2++) {
+                        buf[index2] = image.getPixel(savedx, precalc[index2])
+                    }
+                    image.setRows(index, buf)
                 }
-                image.setRows(index, buf)
             }
-        
+            )
+            control.runInParallel(() => pause(20))
+            control.runInParallel(() => variable.destroy())
         }
-        pause((66 + 2/3) * (mult / 1000))
-        }
-
-    }
-    )}
+}
+pause((66 + 2/3) * (mult / 1000))
+}
 }
