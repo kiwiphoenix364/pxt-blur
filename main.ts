@@ -409,7 +409,7 @@ namespace Blur {
         if (mode = 0) {
     let tempimg = image.clone()
     }
-    for (let size = 2; size < 17; size++) {
+    for (let size = 0; size < 17; size++) {
     info.changeScoreBy(1)    
     if (size >= 5) {
         let savedx = 0
