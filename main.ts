@@ -406,10 +406,12 @@ namespace Blur {
         if (mode = 0) {
     let tempimg = image.screenImage().clone()
     }
+    let zLayer = 0
+    let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
     for (let size = 2; size < 17; size++) {
     info.changeScoreBy(1)
     if (size >= 5) {
-        let zLayer = 0
+
         let savedx = 0
         let buf = Buffer.create(120)
         let precalc = [0]
@@ -420,7 +422,7 @@ namespace Blur {
         for (let index3 = 0; index3 < var3; index3++) {
             precalc.push(Math.constrain(index3 * size + size / 2, 0, 119))
         }
-        let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+        
             if (mode = 0) {
                 image = tempimg
             }
@@ -435,10 +437,6 @@ namespace Blur {
                 }
                 image.setRows(index, buf)
             }
-        }
-        )
-        control.runInParallel(() => pause(20))
-        control.runInParallel(() => variable.destroy())
     } else {
         let zLayer = 0
         let savedx = 0
@@ -459,12 +457,11 @@ namespace Blur {
                 }
                 image.setRows(index, buf)
             }
-        }
-        )
-        control.runInParallel(() => pause(20))
-        control.runInParallel(() => variable.destroy())
+        })  
     }
     pause((66 + 2/3) * (mult / 1000))
     }
-    }
-}
+    control.runInParallel(() => pause(20))
+        control.runInParallel(() => variable.destroy())
+        }
+        )}}
