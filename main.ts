@@ -464,7 +464,7 @@ namespace Blur {
         control.runInParallel(() => pause(20))
         control.runInParallel(() => variable.destroy())
     }
-    pause(1000)
+    pause((66 + 2/3) * (mult / 1000))
     }
     }
 }
