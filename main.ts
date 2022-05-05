@@ -433,7 +433,7 @@ namespace Blur {
                 }
             }
             )
-            control.runInParallel(() => pause(wait))
+            control.runInParallel(() => pause(1000))
             control.runInParallel(() => variable.destroy())
         } else {
             let zLayer = 0
@@ -454,7 +454,7 @@ namespace Blur {
                 }
             }
             )
-            control.runInParallel(() => pause(wait))
+            control.runInParallel(() => pause(1000))
             control.runInParallel(() => variable.destroy())
         }
     pause(1000)
