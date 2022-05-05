@@ -1,4 +1,10 @@
 //% color="#83de8a"
+enum Mode {
+    //% block="Snapshot Of Current Screen"
+    SnapshotOfCurrentScreen,
+    //% block="Screen In Real Time"
+    ScreenInRealTime
+}
 namespace Blur {
     /*
     // block
@@ -388,12 +394,6 @@ namespace Blur {
     }
 }
 */
-enum Mode {
-    //% block="Snapshot Of Current Screen"
-    SnapshotOfCurrentScreen,
-    //% block="Screen In Real Time"
-    ScreenInRealTime
-    }
     //% block
     //% gesture.fieldEditor="gridpicker"
     //% gesture.fieldOptions.width=220
