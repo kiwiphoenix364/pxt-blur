@@ -407,15 +407,18 @@ namespace Blur {
         let zLayer = 0
         let buf = Buffer.create(120)
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+        setTimeout(() => variable.destroy(), wait * 15)
         for (let size = 0; size < 15; size++) {
         info.changeScoreBy(1)
         size1 += 1
+        pause(wait)
+        }
         if (size1 >= 5) {
             let savedx = 0
             let precalc = [0]
             let var1 = 0
             let var2 = 0
-            let var3 = 120 / size
+            let var3 = 120 / size1
             precalc = []
             for (let index3 = 0; index3 < var3; index3++) {
                 precalc.push(Math.constrain(index3 * size1 + size1 / 2, 0, 119))
@@ -446,9 +449,6 @@ namespace Blur {
                     image.setRows(index, buf)
                 }
         }
-        pause(1)
-        }
-        setTimeout(() => variable.destroy(), 1000)
     })
     }
 }
