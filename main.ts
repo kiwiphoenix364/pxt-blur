@@ -450,9 +450,10 @@ namespace Blur {
                     image.setRows(index, buf)
                 }
         }
-            setTimeout(() => {
-                variable.destroy()
-                }, wait * 15)
+
     })
+    setTimeout(() => {
+    variable.destroy()
+    }, wait * 15)
     }
 }
