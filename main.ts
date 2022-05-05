@@ -407,6 +407,7 @@ namespace Blur {
     let tempimg = image.screenImage().clone()
     }
     for (let size = 2; size < 17; size++) {
+    info.changeScoreBy(1)
     if (size >= 5) {
         let zLayer = 0
         let savedx = 0
