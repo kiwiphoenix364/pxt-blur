@@ -402,6 +402,7 @@ namespace Blur {
     //% picker=Mode
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
+        let variable = null
         let wait = ((66 + 2/3)* (mult / 1000))
         let size1 = 2
         for (let size = 0; size < 15; size++) {
@@ -419,7 +420,7 @@ namespace Blur {
             for (let index3 = 0; index3 < var3; index3++) {
                 precalc.push(Math.constrain(index3 * size1 + size1 / 2, 0, 119))
             }
-            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let index = 0; index < 160; index++) {
                     savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
                     for (let index2 = 0; index2 < var3; index2++) {
@@ -431,8 +432,6 @@ namespace Blur {
                     }
                     image.setRows(index, buf)
                 }
-                control.runInParallel(() => pause(1000))
-                control.runInParallel(() => variable.destroy())
             }
             )
         } else {
@@ -444,7 +443,7 @@ namespace Blur {
             for (let index3 = 0; index3 < 120; index3++) {
                 precalc.push(Math.constrain((Math.round(index3 / size1)) * size1 + size1 / 2, 0, 119))
             }
-            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+            variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
                 for (let index = 0; index < 160; index++) {
                     savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
                     for (let index2 = 0; index2 < 120; index2++) {
@@ -452,12 +451,11 @@ namespace Blur {
                     }
                     image.setRows(index, buf)
                 }
-                control.runInParallel(() => pause(1000))
-                control.runInParallel(() => variable.destroy())
             }
             )
         }
-    pause(1000)
+    control.runInParallel(() => pause(1000))
+    control.runInParallel(() => variable.destroy())
     }
 }
 }
