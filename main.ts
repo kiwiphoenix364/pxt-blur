@@ -136,6 +136,7 @@ namespace Blur {
     //% block
     //% block="Apply Blur Filter For 1 Frame With Pixel Size $size 1"
     export function SetBlurFilter1(size: number) {
+    if (size >= 5) {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
@@ -163,16 +164,13 @@ namespace Blur {
             ) 
         control.runInParallel(() => pause(20))
         control.runInParallel(() => variable.destroy())
-        }
-//% block
-//% block="Apply Blur Filter For 1 Frame With Pixel Size $size 2"
-export function SetBlurFilter2(size: number) {
+        } else {
         let zLayer = 0
         let savedx = 0
         let buf = Buffer.create(120)
         let precalc = [0]
         precalc = []
-        for (let index3 = 0; index3 < 119; index3++) {
+        for (let index3 = 0; index3 < 120; index3++) {
             precalc.push(Math.constrain((Math.round(index3 / size)) * size + size / 2, 0, 119))
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -187,6 +185,7 @@ export function SetBlurFilter2(size: number) {
         )
         control.runInParallel(() => pause(20))
         control.runInParallel(() => variable.destroy())
+    }
     }
     //% block
     //% block="Fade Out Over $mult ms With Method $mode"
