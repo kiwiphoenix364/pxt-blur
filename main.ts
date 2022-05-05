@@ -399,7 +399,7 @@ namespace Blur {
     //% picker.fieldEditor="gridpicker"
     //% picker.fieldOptions.width=220
     //% picker.fieldOptions.columns=1
-    //% picker=Mode
+    //% picker = Mode
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
     let tempimg: Image = null
