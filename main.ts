@@ -405,13 +405,13 @@ namespace Blur {
         let wait = ((66 + 2/3)* (mult / 1000))
         let size1 = 2
         let zLayer = 0
+        let buf = Buffer.create(120)
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
         for (let size = 0; size < 15; size++) {
         info.changeScoreBy(1)
         size1 += 1
         if (size1 >= 5) {
             let savedx = 0
-            let buf = Buffer.create(120)
             let precalc = [0]
             let var1 = 0
             let var2 = 0
@@ -433,7 +433,6 @@ namespace Blur {
                 }
         } else {
             let savedx = 0
-            let buf = Buffer.create(120)
             let precalc = [0]
             precalc = []
             for (let index3 = 0; index3 < 120; index3++) {
