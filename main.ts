@@ -62,8 +62,8 @@ namespace Blur {
             }
         }
     )}
-    //% block
-    //% block="Apply Blur Filter For 1 Frame With Pixel Size $size"
+    // block
+    // block="Apply Blur Filter For 1 Frame With Pixel Size $size"
     export function SetBlurFilter (size: number) {
         if (size <= 3) {
             let y = 0
@@ -153,7 +153,7 @@ namespace Blur {
                 }
                 }
             ) 
-            setTimeout(() => variable.destroy(), 20)
+            setTimeout(() => variable.destroy(), 1)
         }
     }
 
