@@ -405,6 +405,7 @@ namespace Blur {
         let wait = ((66 + 2/3)* (mult / 1000))
         let size1 = 2
         for (let size = 0; size < 15; size++) {
+        info.changeScoreBy(1)
         size += 1
         if (size1 >= 5) {
             let zLayer = 0
