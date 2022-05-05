@@ -431,6 +431,8 @@ namespace Blur {
                     }
                     image.setRows(index, buf)
                 }
+                control.runInParallel(() => pause(20))
+                control.runInParallel(() => variable.destroy())
             }
             )
         } else {
@@ -450,6 +452,8 @@ namespace Blur {
                     }
                     image.setRows(index, buf)
                 }
+                control.runInParallel(() => pause(20))
+                control.runInParallel(() => variable.destroy())
             }
             )
         }
