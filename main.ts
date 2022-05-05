@@ -447,6 +447,7 @@ namespace Blur {
                     image.setRows(index, buf)
                 }
         }
+        pause(1000)
         }
     })
     control.runInParallel(() => pause(1000))
