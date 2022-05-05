@@ -412,7 +412,6 @@ namespace Blur {
         pause(wait)
         }
         let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
-        setTimeout(() => variable.destroy(), wait * 15)
         if (size1 >= 5) {
             let savedx = 0
             let precalc = [0]
@@ -449,6 +448,7 @@ namespace Blur {
                     image.setRows(index, buf)
                 }
         }
+            setTimeout(() => variable.destroy(), wait * 15)
     })
     }
 }
