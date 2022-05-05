@@ -154,7 +154,7 @@ namespace Blur {
                         buf[index2] = image.getPixel(savedx - size / 2, precalc[index2 / size] - size / 2)
                         index2 += 1
                     }
-                    index2 += size - 1
+                    index2 += -1
                     }
                 image.setRows(index, buf)
                 }
