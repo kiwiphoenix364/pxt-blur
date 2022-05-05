@@ -403,13 +403,13 @@ namespace Blur {
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
     let zLayer = 0
+    let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
     let tempimg: Image = null
         if (mode = 0) {
-    let tempimg = image.screenImage().clone()
+    let tempimg = image.clone()
     }
     for (let size = 2; size < 17; size++) {
-    info.changeScoreBy(1)
-        let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+    info.changeScoreBy(1)    
     if (size >= 5) {
         let savedx = 0
         let buf = Buffer.create(120)
@@ -456,11 +456,12 @@ namespace Blur {
                 }
                 image.setRows(index, buf)
             }
+        
+        }
         pause((66 + 2/3) * (mult / 1000))
         }
-        })
         control.runInParallel(() => pause(20))
         control.runInParallel(() => variable.destroy())
-    }
+    })
     }
 }
