@@ -403,7 +403,7 @@ namespace Blur {
     //% picker=Mode
     //% block="Fade Out Over $mult ms, Use $mode To Fade"
     export function FadeOutOver(mult: number, mode: Mode) {
-        if (mode = 0) {
+        if (0 + 0 == 0) {
         let img1 = image.screenImage().clone()
         let wait = ((66 + 2/3)* (mult / 1000))
         let size1 = 2
