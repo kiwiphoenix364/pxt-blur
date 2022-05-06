@@ -141,8 +141,8 @@ namespace Blur {
     }}
     */
     //% block
-    //% block="Apply Blur Filter For 1 Frame With Pixel Size $size 1"
-    export function SetBlurFilter1(size: number) {
+    //% block="Apply Blur Filter For 1 Frame With Pixel Size $size"
+    export function SetBlurFilter(size: number) {
     if (size >= 5) {
         let zLayer = 0
         let savedx = 0
@@ -401,8 +401,8 @@ namespace Blur {
     //% picker.fieldOptions.width=220
     //% picker.fieldOptions.columns=1
     //% picker=Mode
-    //% block="Fade Out Over $mult ms, Use $mode To Fade"
-    export function FadeOutOver(mult: number, mode: Mode) {
+    //% block="Blur Out Over $mult ms, Use $mode To Blur"
+    export function BlurOutOver(mult: number, mode: Mode) {
         if (mode == 0) {
         let img1 = image.screenImage().clone()
         let wait = ((66 + 2/3)* (mult / 1000))
@@ -517,8 +517,8 @@ namespace Blur {
     //% picker.fieldOptions.width=220
     //% picker.fieldOptions.columns=1
     //% picker=Mode
-    //% block="Fade In Over $mult ms, Use $mode To Fade"
-    export function FadeInOver(mult: number, mode: Mode) {
+    //% block="Blur In Over $mult ms, Use $mode To Blur"
+    export function BlurInOver(mult: number, mode: Mode) {
         if (mode == 0) {
             let img1 = image.screenImage().clone()
             let wait = ((66 + 2 / 3) * (mult / 1000))
@@ -528,6 +528,121 @@ namespace Blur {
             setTimeout(() => {
                 for (let size = 0; size < 15; size++) {
                     size1 += -1
+                    pause(wait)
+                }
+            }, 0)
+            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                if (size1 >= 5) {
+                    let savedx = 0
+                    let precalc = [0]
+                    let var1 = 0
+                    let var2 = 0
+                    let var3 = 120 / size1
+                    precalc = []
+                    for (let index3 = 0; index3 < var3; index3++) {
+                        precalc.push(Math.constrain(index3 * size1 + size1 / 2, 0, 119))
+                    }
+                    for (let index = 0; index < 160; index++) {
+                        savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
+                        for (let index2 = 0; index2 < var3; index2++) {
+                            var1 = index2 * size1
+                            var2 = img1.getPixel(savedx, precalc[index2])
+                            for (let index3 = 0; index3 < size1; index3++) {
+                                buf[var1 + index3] = var2
+                            }
+                        }
+                        image.setRows(index, buf)
+                    }
+                } else {
+                    let savedx = 0
+                    let precalc = [0]
+                    precalc = []
+                    for (let index3 = 0; index3 < 120; index3++) {
+                        precalc.push(Math.constrain((Math.round(index3 / size1)) * size1 + size1 / 2, 0, 119))
+                    }
+                    for (let index = 0; index < 160; index++) {
+                        savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
+                        for (let index2 = 0; index2 < 120; index2++) {
+                            buf[index2] = img1.getPixel(savedx, precalc[index2])
+                        }
+                        image.setRows(index, buf)
+                    }
+                }
+
+            })
+            setTimeout(() => {
+                variable.destroy()
+            }, wait * 15)
+        } else {
+            let wait = ((66 + 2 / 3) * (mult / 1000))
+            let size1 = 17
+            let zLayer = 0
+            let buf = Buffer.create(120)
+            setTimeout(() => {
+                for (let size = 0; size < 15; size++) {
+                    size1 += -1
+                    pause(wait)
+                }
+            }, 0)
+            let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
+                if (size1 >= 5) {
+                    let savedx = 0
+                    let precalc = [0]
+                    let var1 = 0
+                    let var2 = 0
+                    let var3 = 120 / size1
+                    precalc = []
+                    for (let index3 = 0; index3 < var3; index3++) {
+                        precalc.push(Math.constrain(index3 * size1 + size1 / 2, 0, 119))
+                    }
+                    for (let index = 0; index < 160; index++) {
+                        savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
+                        for (let index2 = 0; index2 < var3; index2++) {
+                            var1 = index2 * size1
+                            var2 = image.getPixel(savedx, precalc[index2])
+                            for (let index3 = 0; index3 < size1; index3++) {
+                                buf[var1 + index3] = var2
+                            }
+                        }
+                        image.setRows(index, buf)
+                    }
+                } else {
+                    let savedx = 0
+                    let precalc = [0]
+                    precalc = []
+                    for (let index3 = 0; index3 < 120; index3++) {
+                        precalc.push(Math.constrain((Math.round(index3 / size1)) * size1 + size1 / 2, 0, 119))
+                    }
+                    for (let index = 0; index < 160; index++) {
+                        savedx = Math.constrain((Math.round(index / size1)) * size1 + size1 / 2, 0, 159)
+                        for (let index2 = 0; index2 < 120; index2++) {
+                            buf[index2] = image.getPixel(savedx, precalc[index2])
+                        }
+                        image.setRows(index, buf)
+                    }
+                }
+
+            })
+            setTimeout(() => {
+                variable.destroy()
+            }, wait * 15)
+        }
+    }
+    //% block
+    //% picker.fieldEditor="gridpicker"
+    //% picker.fieldOptions.width=220
+    //% picker.fieldOptions.columns=1
+    //% picker=Mode
+    //% block="Blur From Pixel Size $size1 To Size $size2 Over $mult ms, Use $mode To Blur"
+    export function BlurSizeToSize(size1: number, size2: number, mult: number, mode: Mode) {
+        if (mode == 0) {
+            let img1 = image.screenImage().clone()
+            let wait = ((66 + 2 / 3) * (mult / 1000))
+            let zLayer = 0
+            let buf = Buffer.create(120)
+            setTimeout(() => {
+                for (let size = 0; size < Math.abs(size1 - size2); size++) {
+                    size1 += Math.constrain(size1 - size2, -1, 1)
                     pause(wait)
                 }
             }, 0)
