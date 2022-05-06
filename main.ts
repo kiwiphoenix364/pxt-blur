@@ -575,12 +575,12 @@ namespace Blur {
             }, wait * 15)
         } else {
             let wait = ((66 + 2 / 3) * (mult / 1000))
-            let size1 = 2
+            let size1 = 17
             let zLayer = 0
             let buf = Buffer.create(120)
             setTimeout(() => {
                 for (let size = 0; size < 15; size++) {
-                    size1 += 1
+                    size1 += -1
                     pause(wait)
                 }
             }, 0)
