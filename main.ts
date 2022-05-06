@@ -36,8 +36,7 @@ namespace Blur {
                 }
             }
             )
-            control.runInParallel(() => pause(20))
-            control.runInParallel(() => variable.destroy())
+            setTimeout(() => variable.destroy(), 20)
         } else {
             let zLayer = 0
             let savedx = 0
@@ -57,8 +56,7 @@ namespace Blur {
                 }
             }
             )
-            control.runInParallel(() => pause(20))
-            control.runInParallel(() => variable.destroy())
+            setTimeout(() => variable.destroy(), 20)
         }
     }
     // this code has so many repeats because I don't want it using if statements almost 20,000 times (literally, for each pixel), instead I just make a bunch of code repeat so I only have to run "IF" once.
