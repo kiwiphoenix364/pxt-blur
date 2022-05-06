@@ -688,7 +688,7 @@ namespace Blur {
             })
             setTimeout(() => {
                 variable.destroy()
-            }, wait * 15)
+            }, wait * dif)
         } else {
             let dif = Math.abs(size1 - size2)
             let wait = ((1000 / dif) * (mult / 1000))
@@ -741,7 +741,7 @@ namespace Blur {
             })
             setTimeout(() => {
                 variable.destroy()
-            }, wait)
+            }, wait * dif)
         }
     }
 }
