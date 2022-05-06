@@ -8,7 +8,7 @@ enum Mode {
 //% color="#83de8a"
 namespace Blur {
     //% block
-    //% block="Apply Blur Filter For 1 Frame With Pixel Size $size"
+    //% block="Apply Blur Filter Using On Game Update With Pixel Size $size"
     export function SetBlurFilter(size: number) {
         if (size >= 5) {
             let zLayer = 0
