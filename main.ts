@@ -643,8 +643,8 @@ namespace Blur {
             let buf = Buffer.create(120)
             setTimeout(() => {
                 for (let size = 0; size < dif; size++) {
-                    size1 += Math.constrain(size1 - size2, -1, 1)
                     pause(wait)
+                    size1 += Math.constrain(size1 - size2, -1, 1)
                 }
             }, 0)
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -695,9 +695,9 @@ namespace Blur {
             let zLayer = 0
             let buf = Buffer.create(120)
             setTimeout(() => {
-                for (let size = 0; size < 15; size++) {
-                    size1 += Math.constrain(size1 - size2, -1, 1)
+                for (let size = 0; size < dif; size++) {
                     pause(wait)
+                    size1 += Math.constrain(size1 - size2, -1, 1)
                 }
             }, 0)
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
