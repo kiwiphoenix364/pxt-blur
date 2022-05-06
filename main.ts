@@ -637,14 +637,14 @@ namespace Blur {
     export function BlurSizeToSize(size1: number, size2: number, mult: number, mode: Mode) {
         if (mode == 0) {
             let img1 = image.screenImage().clone()
-            let dif = Math.abs(size1 - size2)
+            let dif = Math.abs(size2 - size1)
             let wait = ((1000 / dif) * (mult / 1000))
             let zLayer = 0
             let buf = Buffer.create(120)
             setTimeout(() => {
                 for (let size = 0; size < dif; size++) {
                     pause(wait)
-                    size1 += Math.constrain(size1 - size2, -1, 1)
+                    size1 += Math.constrain(size2 - size1, -1, 1)
                 }
             }, 0)
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
@@ -690,14 +690,14 @@ namespace Blur {
                 variable.destroy()
             }, wait * dif)
         } else {
-            let dif = Math.abs(size1 - size2)
+            let dif = Math.abs(size2 - size1)
             let wait = ((1000 / dif) * (mult / 1000))
             let zLayer = 0
             let buf = Buffer.create(120)
             setTimeout(() => {
                 for (let size = 0; size < dif; size++) {
                     pause(wait)
-                    size1 += Math.constrain(size1 - size2, -1, 1)
+                    size1 += Math.constrain(size2 - size1, -1, 1)
                 }
             }, 0)
             let variable = scene.createRenderable(zLayer, (image: Image, camera: scene.Camera) => {
