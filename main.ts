@@ -638,7 +638,7 @@ namespace Blur {
         if (mode == 0) {
             let img1 = image.screenImage().clone()
             let dif = Math.abs(size1 - size2)
-            let wait = ((100 / dif) * (mult / 1000))
+            let wait = ((1000 / dif) * (mult / 1000))
             let zLayer = 0
             let buf = Buffer.create(120)
             setTimeout(() => {
