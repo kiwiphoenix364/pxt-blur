@@ -36,7 +36,7 @@ namespace Blur {
                 }
             }
             )
-            control.runInParallel(() => pause(51))
+            control.runInParallel(() => pause(100))
             control.runInParallel(() => variable.destroy())
         } else {
             let zLayer = 0
@@ -57,7 +57,7 @@ namespace Blur {
                 }
             }
             )
-            control.runInParallel(() => pause(51))
+            control.runInParallel(() => pause(100))
             control.runInParallel(() => variable.destroy())
         }
     }
