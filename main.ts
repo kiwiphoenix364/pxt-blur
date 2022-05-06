@@ -741,7 +741,7 @@ namespace Blur {
             })
             setTimeout(() => {
                 variable.destroy()
-            }, wait * dif)
+            }, wait * dif + wait)
         }
     }
 }
