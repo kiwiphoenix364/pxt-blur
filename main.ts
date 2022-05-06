@@ -637,7 +637,7 @@ namespace Blur {
     export function BlurSizeToSize(size1: number, size2: number, mult: number, mode: Mode) {
         if (mode == 0) {
             let img1 = image.screenImage().clone()
-            let dif = Math.abs(size2 - size1)
+            let dif = Math.abs(size2 - size1) + 1
             let wait = ((1000 / dif) * (mult / 1000))
             let zLayer = 0
             let buf = Buffer.create(120)
@@ -690,7 +690,7 @@ namespace Blur {
                 variable.destroy()
             }, wait * dif)
         } else {
-            let dif = Math.abs(size2 - size1)
+            let dif = Math.abs(size2 - size1) + 1
             let wait = ((1000 / dif) * (mult / 1000))
             let zLayer = 0
             let buf = Buffer.create(120)
@@ -741,7 +741,7 @@ namespace Blur {
             })
             setTimeout(() => {
                 variable.destroy()
-            }, wait * dif + wait)
+            }, wait * dif)
         }
     }
 }
