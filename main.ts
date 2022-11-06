@@ -11,7 +11,6 @@ let variable = scene.createRenderable(zLayer1, (image1: Image, camera: scene.Cam
 })
 //% color="#83de8a"
 //% block="Blur"
-//% icon="\uf125"
 namespace blur {
     //% block="blur screen image to pixel size $size || over $ms ms"
     //% weight=0
