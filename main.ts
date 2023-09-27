@@ -1,7 +1,7 @@
 let memSize1 = 0
-let zLayer1 = 1
+let zLayerBlur1 = 1
 let blurSize1 = 1
-let variable = scene.createRenderable(zLayer1, (image1: Image, camera: scene.Camera) => {
+let variable1 = scene.createRenderable(zLayerBlur1, (image1: Image, camera: scene.Camera) => {
     let screenClone = image1.clone()
     if (blurSize1 != 1) {
         let tempImg = image.create(Math.ceil(160 / blurSize1), Math.ceil(120 / blurSize1))
