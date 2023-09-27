@@ -17,12 +17,13 @@ namespace blur {
     //% ms.shadow="timePicker"
     //% expandableArgumentMode="toggle"
     export function SetBlurFilter(size: number, ms = 25) {
+        size = Math.max(1, size)
         if (ms < 25) {
             ms = 25
         }
-        memSize1 = size - blurSize1
+        memSize1 = (size - blurSize1) / (ms / 25)
         for (let j = 0; j < (ms / 25); j++) {
-            blurSize1 += memSize1 / (ms / 25)
+            blurSize1 += memSize1
             pause(25)
         }
     }
@@ -35,9 +36,9 @@ namespace blur {
         if (ms < 25) {
             ms = 25
         }
-        memSize1 = size - blurSize1
+        memSize1 = (size - blurSize1) / (ms / 25)
         for (let j = 0; j < (ms / 25); j++) {
-            blurSize1 += memSize1 / (ms / 25)
+            blurSize1 += memSize1
             pause(25)
         }
     }
@@ -51,9 +52,9 @@ namespace blur {
         if (ms < 25) {
             ms = 25
         }
-        memSize1 = size - blurSize1
+        memSize1 = (size - blurSize1) / (ms / 25)
         for (let j = 0; j < (ms / 25); j++) {
-            blurSize1 += memSize1 / (ms / 25)
+            blurSize1 += memSize1
             pause(25)
         }
     }
