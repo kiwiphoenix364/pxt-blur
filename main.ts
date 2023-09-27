@@ -16,7 +16,7 @@ namespace blur {
     //% weight=0
     //% ms.shadow="timePicker"
     //% expandableArgumentMode="toggle"
-    export function SetBlurFilter(size: number, ms = 25) {
+    export function SetBlurFilter(size: number, ms = 33) {
         size = Math.max(1, size)
         if (ms < 33) {
             ms = 33
