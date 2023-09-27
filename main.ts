@@ -16,46 +16,46 @@ namespace blur {
     //% weight=0
     //% ms.shadow="timePicker"
     //% expandableArgumentMode="toggle"
-    export function SetBlurFilter(size: number, ms = 33) {
+    export function SetBlurFilter(size: number, ms = 25) {
         size = Math.max(1, size)
-        if (ms < 33) {
-            ms = 33
+        if (ms < 25) {
+            ms = 25
         }
-        memSize1 = Math.floor(size - blurSize1) / (ms / 33)
-        for (let j = 0; j < (ms / 33); j++) {
+        memSize1 = Math.floor(size - blurSize1) / (ms / 25)
+        for (let j = 0; j < (ms / 25); j++) {
             blurSize1 += memSize1
-            pause(33)
+            pause(25)
         }
     }
     //% block="blur in over $ms ms"
     //% weight=2
     //% ms.shadow="timePicker"
-    export function BlurIn(ms = 33) {
+    export function BlurIn(ms = 25) {
         blurSize1 = 15
         let size = 1
-        if (ms < 33) {
-            ms = 33
+        if (ms < 25) {
+            ms = 25
         }
-        memSize1 = (size - blurSize1) / (ms / 33)
-        for (let j = 0; j < Math.floor(ms / 33); j++) {
+        memSize1 = (size - blurSize1) / (ms / 25)
+        for (let j = 0; j < Math.floor(ms / 25); j++) {
             blurSize1 += memSize1
-            pause(33)
+            pause(25)
         }
     }
 
     //% block="blur out over $ms ms"
     //% weight=1
     //% ms.shadow="timePicker"
-    export function BlurOut(ms = 33) {
+    export function BlurOut(ms = 25) {
         blurSize1 = 1
         let size = 15
-        if (ms < 33) {
-            ms = 33
+        if (ms < 25) {
+            ms = 25
         }
-        memSize1 = (size - blurSize1) / (ms / 33)
-        for (let j = 0; j < Math.floor(ms / 33); j++) {
+        memSize1 = (size - blurSize1) / (ms / 25)
+        for (let j = 0; j < Math.floor(ms / 25); j++) {
             blurSize1 += memSize1
-            pause(33)
+            pause(25)
         }
     }
 
